@@ -1,0 +1,15 @@
+
+nav {
+  a, 
+  &:visited {
+  	color: #000;
+
+    &.active {
+    	color: red;
+    }
+  }
+
+  .nav-links {
+    text-align: right
+  }
+}

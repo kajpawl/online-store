@@ -1,0 +1,17 @@
+[
+  {
+    "code": "SUMMER-19", 
+    "type": "minus", 
+    "value": 45
+  },
+  {
+    "code": "CATHARSIS", 
+    "type": "percent", 
+    "value": 15
+  },
+  {
+    "code": "SHIPPING",
+    "type": "shipping",
+    "value": true
+  }
+]

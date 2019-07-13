@@ -1,0 +1,68 @@
+[
+  {
+    "category": "Sporting Goods", 
+    "price": 49.99,
+    "oldPrice": 49.99, 
+    "stock": 4, 
+    "dateAdded": "2018-06-21",
+    "name": "Football", 
+    "promoted": false,
+    "imgs": "", 
+    "id": "1"
+  },
+  {
+    "category": "Sporting Goods", 
+    "price": 9.99,
+    "oldPrice": 12.99, 
+    "stock": 4, 
+    "dateAdded": "2018-06-21",
+    "name": "Baseball",  
+    "promoted": true,
+    "imgs": "", 
+    "id": "2"
+  },
+  {
+    "category": "Sporting Goods", 
+    "price": 29.99,
+    "oldPrice": 29.99, 
+    "stock": 1, 
+    "dateAdded": "2018-06-21",
+    "name": "Basketball", 
+    "promoted": false,
+    "imgs": "", 
+    "id": "3"
+  },
+  {
+    "category": "Electronics", 
+    "price": 99.99,
+    "oldPrice": 124.99, 
+    "stock": 4, 
+    "dateAdded": "2018-06-21",
+    "name": "iPod Touch", 
+    "promoted": true,
+    "imgs": "", 
+    "id": "4"
+  },
+  {
+    "category": "Electronics", 
+    "price": 399.99,
+    "oldPrice": 419.99, 
+    "stock": 4, 
+    "dateAdded": "2018-06-21",
+    "name": "iPhone 5", 
+    "promoted": true,
+    "imgs": "", 
+    "id": "5"
+  },
+  {
+    "category": "Electronics", 
+    "price": 199.99,
+    "oldPrice": 224.99, 
+    "stock": 4, 
+    "dateAdded": "2018-06-21",
+    "name": "Nexus 7", 
+    "promoted": true,
+    "imgs": "", 
+    "id": "6"
+  }
+]
