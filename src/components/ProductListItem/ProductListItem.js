@@ -13,7 +13,6 @@ const ProductListItem = props => (
 		{props.product.stock === 1 ? <div className="lastInStock">
 			Last in stock!
 		</div> : ""}
-		{/* <button onClick={() => props.addToCart(product.id)}>Add to cart</button> */}
 	</div>
 );
 

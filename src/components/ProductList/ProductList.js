@@ -11,7 +11,7 @@ const ProductList = props => (
 					<Link className="miniature" to={"products/" + product.id}>
 						<ProductListItem key={product.id} product={product} />
 					</Link>
-					{/* <button onClick={props.deleteCountry.bind(null, country.id)}>Add to cart</button>*/}
+					<button onClick={(id) => (props.addToCart(product.id))}>Add to cart</button>
 				</div>
 			)
 		})}
