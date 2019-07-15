@@ -15,7 +15,11 @@ const initialState = {
 const cartReducer = function(state = initialState, action) {
   switch (action.type) {
     case ADD_TO_CART:
-      if (state.cartItems.find(product => product.item.id === action.id)) {
+      if (state.cartItems.find(product => (product.item.id === action.id) && (product.item.stock <= product.quantity))) {
+        window.alert('Number of items in stock exceded!');
+        return state;
+      } 
+      else if (state.cartItems.find(product => product.item.id === action.id)) {
         const updatedCartItems = state.cartItems.map(product => product.item.id === action.id ? Object.assign({}, product, {quantity: ++product.quantity}) : product);
         return Object.assign({}, state, {cartItems: updatedCartItems});
       } 
@@ -33,8 +37,14 @@ const cartReducer = function(state = initialState, action) {
       return Object.assign({}, state, {cartItems: updatedCartItems});
 
     case CHANGE_QUANTITY:
-      const changedCartItems = state.cartItems.map(product => product.item.id === action.id ? Object.assign({}, product, {quantity: action.quantity}) : product);
-      return Object.assign({}, state, {cartItems: changedCartItems});
+      if (state.cartItems.find(product => (product.item.id === action.id) && (product.item.stock <= product.quantity))) {
+        window.alert('Number of items in stock exceded!');
+        return state;
+      }
+      else {
+        const changedCartItems = state.cartItems.map(product => product.item.id === action.id ? Object.assign({}, product, {quantity: action.quantity}) : product);
+        return Object.assign({}, state, {cartItems: changedCartItems});
+      }
 
     case USE_COUPON:
       const usedCoupon = state.coupons.find(coupon => coupon.code === action.couponCode);
