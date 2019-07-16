@@ -4,7 +4,7 @@ import CartProductList from '../CartProductList/CartProductList';
 import './Cart.scss';
 
 const Cart = props => {
-  const { cartItems, removeFromCart, changeQuantity } = props;
+  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost } = props;
 
   let subtotalValues = [];
   const reducedSubtotal = () => {
@@ -12,8 +12,41 @@ const Cart = props => {
     function sum(x, y) {
       return x + y;
     };
-    return subtotalValues.length !== 0 ? subtotalValues.reduce(sum) : "0";
+    return subtotalValues.length !== 0 ? subtotalValues.reduce(sum) : 0;
   };
+
+  const finalSubtotal = () => {
+    if (discountCoupon.type === "minus") {
+      return (reducedSubtotal() - discountCoupon.value).toFixed(2);
+    }
+    else if (discountCoupon.type === "percent") {
+      return (reducedSubtotal() - (reducedSubtotal() * (discountCoupon.value / 100))).toFixed(2);
+    }
+    else if (discountCoupon.type === "shipping") {
+  //    freeShipping = true;
+      return (reducedSubtotal()).toFixed(2);
+    }
+    else {
+      return (reducedSubtotal()).toFixed(2);
+    };
+  };
+
+
+
+//  THIS NEEDS TO BE ISOLATED AS A CONTAINER: CouponInputContainer
+
+
+  let couponInput = null;
+
+  const onCouponSubmit = event => {
+    event.preventDefault();
+    props.useCoupon(couponInput.value)
+  };
+
+
+//  END OF THE COUPONINPUTCONTAINER
+
+
 
   return (
     <div className="cart">
@@ -27,9 +60,13 @@ const Cart = props => {
       />
       <div className="subtotal">
         <div className="subtotalLine">
-          <b>Subtotal:</b> <span className="value">{reducedSubtotal()} zł</span>
+          <b>Subtotal:</b> <span className="value">{finalSubtotal()} zł</span>
         </div>
-        <p>Have a Coupon Code?</p>
+        <form className="addCouponCode" onSubmit={onCouponSubmit}>
+          <p>Have a Coupon Code?</p>
+          <input className="couponInput" type="text" placeholder="Insert code" ref={node => couponInput = node} />
+          <input type="submit" className="couponCodeSubmit" value="Submit" />
+        </form>
       </div>
       <button className="checkoutButton">Proceed to checkout</button>
     </div>

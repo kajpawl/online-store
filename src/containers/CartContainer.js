@@ -5,14 +5,17 @@ import { removeFromCart, changeQuantity, useCoupon, confirmOrder } from '../acti
 
 class CartContainer extends Component {
 	render() {
-		const { cartItems, removeFromCart, changeQuantity, useCoupon, confirmOrder } = this.props;
+		const { cartItems, removeFromCart, changeQuantity, useCoupon, confirmOrder, coupons, discountCoupon, shippingCost } = this.props;
 		return (
 			<Cart 
 				cartItems={cartItems} 
 				removeFromCart={(id) => removeFromCart(id)} 
 				changeQuantity={(id, quantity) => changeQuantity(id, quantity)} 
 				useCoupon={(couponCode) => useCoupon(couponCode)} 
-				confirmOrder={() => confirmOrder()} 
+				confirmOrder={() => confirmOrder()}
+				coupons={coupons}
+				discountCoupon={discountCoupon}
+				shippingCost={shippingCost}
 			/>
 		)
 	}

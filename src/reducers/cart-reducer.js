@@ -2,7 +2,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QUANTITY, USE_COUPON, CONFIRM_ORD
 import productsData from '../data/products.json';
 import couponsData from '../data/coupons.json';
 
-const shippingPrice = 12.50;
+const shippingPrice = 8.50;
 const initialState = {
   products: productsData,
   coupons: couponsData,
@@ -47,8 +47,13 @@ const cartReducer = function(state = initialState, action) {
       }
 
     case USE_COUPON:
-      const usedCoupon = state.coupons.find(coupon => coupon.code === action.couponCode);
-      return Object.assign({}, state, {discountCoupon: usedCoupon});
+      if (state.coupons.find(coupon => coupon.code === action.couponCode)) {
+        const usedCoupon = state.coupons.find(coupon => coupon.code === action.couponCode);
+        return Object.assign({}, state, {discountCoupon: usedCoupon});
+      }
+      else {
+        return state;
+      }
 
     default:
       return state;
