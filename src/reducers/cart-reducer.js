@@ -37,8 +37,12 @@ const cartReducer = function(state = initialState, action) {
       return Object.assign({}, state, {cartItems: updatedCartItems});
 
     case CHANGE_QUANTITY:
-      if (state.cartItems.find(product => (product.item.id === action.id) && (product.item.stock <= product.quantity))) {
+      if (state.cartItems.find(product => (product.item.id === action.id) && (product.item.stock < action.quantity))) {
         window.alert('Number of items in stock exceded!');
+        const changedCartItems = state.cartItems.map(product => product.item.id === action.id ? Object.assign({}, product, {quantity: product.item.stock}) : product);
+        return Object.assign({}, state, {cartItems: changedCartItems});
+      }
+      else if (action.quantity <= 0) {
         return state;
       }
       else {

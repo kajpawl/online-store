@@ -35,7 +35,7 @@ import CartContainer from './containers/CartContainer';
 // import { Contact } from './components/Contact/Contact';
 // import { Checkout } from './components/Checkout/Checkout';
 // import { User } from './components/User';
-import { NoMatch } from './components/NoMatch';
+import NoMatch from './components/NoMatch/NoMatch';
 
 class App extends React.Component {
 	render() {
