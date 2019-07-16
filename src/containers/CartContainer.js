@@ -4,6 +4,36 @@ import Cart from '../components/Cart/Cart';
 import { removeFromCart, changeQuantity, useCoupon, confirmOrder } from '../actions/cart-actions';
 
 class CartContainer extends Component {
+
+  reducedSubtotal = () => {
+	  const { cartItems } = this.props;
+		let subtotalValues = [];
+    cartItems.map(cartItem => subtotalValues.push(cartItem.quantity * cartItem.item.price));
+    function sum(x, y) {
+      return x + y;
+    };
+    return subtotalValues.length !== 0 ? subtotalValues.reduce(sum) : 0;
+  };
+
+  finalSubtotal = () => {
+ 		const { cartItems, discountCoupon } = this.props;
+ 		const { reducedSubtotal } = this;
+
+    if (discountCoupon.type === "minus") {
+      return (reducedSubtotal() - discountCoupon.value).toFixed(2);
+    }
+    else if (discountCoupon.type === "percent") {
+      return (reducedSubtotal() - (reducedSubtotal() * (discountCoupon.value / 100))).toFixed(2);
+    }
+    else if (discountCoupon.type === "shipping") {
+  //    freeShipping = true;
+      return (reducedSubtotal()).toFixed(2);
+    }
+    else {
+      return (reducedSubtotal()).toFixed(2);
+    };
+  };
+
 	render() {
 		const { cartItems, removeFromCart, changeQuantity, useCoupon, confirmOrder, coupons, discountCoupon, shippingCost } = this.props;
 		return (
@@ -16,6 +46,7 @@ class CartContainer extends Component {
 				coupons={coupons}
 				discountCoupon={discountCoupon}
 				shippingCost={shippingCost}
+				finalSubtotal={this.finalSubtotal}
 			/>
 		)
 	}

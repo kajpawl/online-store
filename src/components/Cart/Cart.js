@@ -4,32 +4,8 @@ import CartProductList from '../CartProductList/CartProductList';
 import './Cart.scss';
 
 const Cart = props => {
-  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost } = props;
+  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost, finalSubtotal } = props;
 
-  let subtotalValues = [];
-  const reducedSubtotal = () => {
-    cartItems.map(cartItem => subtotalValues.push(cartItem.quantity * cartItem.item.price));
-    function sum(x, y) {
-      return x + y;
-    };
-    return subtotalValues.length !== 0 ? subtotalValues.reduce(sum) : 0;
-  };
-
-  const finalSubtotal = () => {
-    if (discountCoupon.type === "minus") {
-      return (reducedSubtotal() - discountCoupon.value).toFixed(2);
-    }
-    else if (discountCoupon.type === "percent") {
-      return (reducedSubtotal() - (reducedSubtotal() * (discountCoupon.value / 100))).toFixed(2);
-    }
-    else if (discountCoupon.type === "shipping") {
-  //    freeShipping = true;
-      return (reducedSubtotal()).toFixed(2);
-    }
-    else {
-      return (reducedSubtotal()).toFixed(2);
-    };
-  };
 
 
 
