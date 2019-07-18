@@ -4,7 +4,7 @@ import ProductListItem from '../ProductListItem/ProductListItem';
 import './ProductList.scss';
 
 const ProductList = props => (
-	<div className="products-list">
+	<div className="productsList">
 		{props.products.map(product => {
 			return (
 				<div className="product-list-item" key={product.id}>

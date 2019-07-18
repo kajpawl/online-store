@@ -3,6 +3,7 @@ export const SORT_PRODUCTS = 'SORT_PRODUCTS';
 export const GET_CATEGORY = 'GET_CATEGORY';
 export const SEARCH_PRODUCTS = 'SEARCH_PRODUCTS';
 export const GET_PRODUCT = 'GET_PRODUCT';
+export const CHANGE_PRODUCT_PAGE = 'CHANGE_PRODUCT_PAGE';
 
 
 // listing available products
@@ -41,5 +42,13 @@ export function getProduct(id) {
   return {
     type: GET_PRODUCT,
     id
+  }
+}
+
+// change page in products container
+export function changeProductPage(targetPage) {
+  return {
+    type: CHANGE_PRODUCT_PAGE,
+    targetPage
   }
 }

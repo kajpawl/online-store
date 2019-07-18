@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SORT_PRODUCTS, GET_CATEGORY, SEARCH_PRODUCTS, GET_PRODUCT } from '../actions/products-actions';
+import { GET_PRODUCTS, SORT_PRODUCTS, GET_CATEGORY, SEARCH_PRODUCTS, GET_PRODUCT, CHANGE_PRODUCT_PAGE } from '../actions/products-actions';
 import productsData from '../data/products.json';
 
 const initialState = {
@@ -6,6 +6,8 @@ const initialState = {
   selectedProduct: {},
   shownProducts: [],
   searchText: '',
+  currentPage: 1,
+  productsPerPage: 2
 };
 
 const productsReducer = function(state = initialState, action) {
@@ -67,6 +69,10 @@ const productsReducer = function(state = initialState, action) {
     case GET_PRODUCT:
       const selectedProduct = state.products.find(product => product.id === action.id);
       return Object.assign({}, state, {selectedProduct});
+
+    case CHANGE_PRODUCT_PAGE:
+      const targetPage = action.targetPage;
+      return targetPage <= 0 || targetPage > (state.shownProducts.length / state.productsPerPage) ? state : Object.assign({}, state, {currentPage: targetPage});
 
     default:
       return state;
