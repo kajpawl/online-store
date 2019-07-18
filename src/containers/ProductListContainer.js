@@ -23,8 +23,8 @@ class ProductListContainer extends Component {
 	renderPaginationButtons() {
 		const { shownProducts, productsPerPage, currentPage, changeProductPage } = this.props;
 		let paginationButtons = [];
-		for (let i = 1; i <= (shownProducts.length / productsPerPage); i++) {
-			paginationButtons.push(<li key={i} className={`paginationButton ${i === currentPage ? 'active' : ''}`} onClick={() => changeProductPage(i)}>{i}</li>);
+		for (let i = 0; i < (shownProducts.length / productsPerPage); i++) {
+			paginationButtons.push(<li key={i} className={`paginationButton ${i + 1 === currentPage ? 'active' : ''}`} onClick={() => changeProductPage(i + 1)}>{i + 1}</li>);
 		};
 		return paginationButtons;
 	}

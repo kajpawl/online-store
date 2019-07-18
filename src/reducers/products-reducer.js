@@ -36,22 +36,22 @@ const productsReducer = function(state = initialState, action) {
         case "fromAToZ":
           sortedProducts = state.products.sort(fromAToZ);
           foundProducts = findProducts(state.searchText);
-          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts});
+          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts, currentPage: 1});
 
         case "fromZToA":
           sortedProducts = state.products.sort(fromAToZ).reverse();
           foundProducts = findProducts(state.searchText);
-          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts});
+          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts, currentPage: 1});
 
         case "lowToHigh":
           sortedProducts = state.products.sort(lowToHigh);
           foundProducts = findProducts(state.searchText);
-          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts});
+          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts, currentPage: 1});
 
         case "highToLow":
           sortedProducts = state.products.sort(lowToHigh).reverse();
           foundProducts = findProducts(state.searchText);
-          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts});
+          return Object.assign({}, state, {products: sortedProducts, shownProducts: foundProducts, currentPage: 1});
 
         default:
           return state;
@@ -59,12 +59,12 @@ const productsReducer = function(state = initialState, action) {
 
     case GET_CATEGORY:
       const categoryProducts = state.products.filter(product => product.category === action.category);
-      return Object.assign({}, state, {shownProducts: categoryProducts});
+      return Object.assign({}, state, {shownProducts: categoryProducts, currentPage: 1});
 
     case SEARCH_PRODUCTS:
       const newSearchText = action.searchText.toLowerCase();
       foundProducts = findProducts(newSearchText);
-      return Object.assign({}, state, {searchText: newSearchText, shownProducts: foundProducts});
+      return Object.assign({}, state, {searchText: newSearchText, shownProducts: foundProducts, currentPage: 1});
 
     case GET_PRODUCT:
       const selectedProduct = state.products.find(product => product.id === action.id);
@@ -72,7 +72,7 @@ const productsReducer = function(state = initialState, action) {
 
     case CHANGE_PRODUCT_PAGE:
       const targetPage = action.targetPage;
-      return targetPage <= 0 || targetPage > (state.shownProducts.length / state.productsPerPage) ? state : Object.assign({}, state, {currentPage: targetPage});
+      return targetPage <= 0 || targetPage > Math.ceil(state.shownProducts.length / state.productsPerPage) ? state : Object.assign({}, state, {currentPage: targetPage});
 
     default:
       return state;
