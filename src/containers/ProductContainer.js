@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Product from '../components/Product/Product';
+import NoMatch from '../components/NoMatch/NoMatch';
 import { getProduct } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
 
@@ -12,11 +13,16 @@ class ProductContainer extends Component {
 
 	render() {
 		const {selectedProduct, addToCart} = this.props;
-		return (
-			<div>
-				<Product product={selectedProduct} addToCart={(id) => addToCart(id)} />
-			</div>
-		)
+		if (selectedProduct) {
+			return (
+				<div>
+					<Product product={selectedProduct} addToCart={(id) => addToCart(id)} />
+				</div>
+			)
+		}
+		else {
+			return <NoMatch />
+		}
 	}
 };
 

@@ -30,10 +30,11 @@ import Home from './components/Home/Home';
 import ProductListContainer from './containers/ProductListContainer';
 import ProductContainer from './containers/ProductContainer';
 import CartContainer from './containers/CartContainer';
+import CheckoutContainer from './containers/CheckoutContainer';
+
 // import { Faq } from './components/Faq/Faq';
 // import { Terms } from './components/Terms/Terms';
 // import { Contact } from './components/Contact/Contact';
-// import { Checkout } from './components/Checkout/Checkout';
 // import { User } from './components/User';
 import NoMatch from './components/NoMatch/NoMatch';
 
@@ -50,11 +51,14 @@ class App extends React.Component {
 								<Route exact path={'/products'} component={ProductListContainer} />
 								<Route exact path={'/products/:id'} component={ProductContainer} />
 								<Route exact path={'/cart'} component={CartContainer} />
+								<Route exact path={'/checkout'} component={CheckoutContainer} />
+								<Route exact path={'/checkout/billing'} component={CheckoutContainer} />
+								<Route exact path={'/checkout/confirm'} component={CheckoutContainer} />
+
 							{/*
 								<Route exact path={'/faq'} component={Faq} />
 								<Route exact path={'/terms'} component={Terms} />
 								<Route exact path={'/contact'} component={Contact} />
-								<Route exact path={'/checkout'} component={Checkout} />
 
 							*/}
 								<Route component={NoMatch} />

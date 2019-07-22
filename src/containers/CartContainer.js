@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Cart from '../components/Cart/Cart';
-import { removeFromCart, changeQuantity, useCoupon, confirmOrder } from '../actions/cart-actions';
+import { removeFromCart, changeQuantity, useCoupon, toCheckout } from '../actions/cart-actions';
 
 class CartContainer extends Component {
 
@@ -25,24 +25,20 @@ class CartContainer extends Component {
     else if (discountCoupon.type === "percent") {
       return (reducedSubtotal() - (reducedSubtotal() * (discountCoupon.value / 100))).toFixed(2);
     }
-    else if (discountCoupon.type === "shipping") {
-  //    freeShipping = true;
-      return (reducedSubtotal()).toFixed(2);
-    }
     else {
       return (reducedSubtotal()).toFixed(2);
     };
   };
 
 	render() {
-		const { cartItems, removeFromCart, changeQuantity, useCoupon, confirmOrder, coupons, discountCoupon, shippingCost } = this.props;
+		const { cartItems, removeFromCart, changeQuantity, useCoupon, toCheckout, coupons, discountCoupon, shippingCost } = this.props;
 		return (
 			<Cart 
 				cartItems={cartItems} 
 				removeFromCart={(id) => removeFromCart(id)} 
 				changeQuantity={(id, quantity) => changeQuantity(id, quantity)} 
 				useCoupon={(couponCode) => useCoupon(couponCode)} 
-				confirmOrder={() => confirmOrder()}
+				toCheckout={(subtotal) => toCheckout(subtotal)}
 				coupons={coupons}
 				discountCoupon={discountCoupon}
 				shippingCost={shippingCost}
@@ -64,7 +60,7 @@ const mapDispatchToProps = dispatch => ({
 	removeFromCart: id => dispatch(removeFromCart(id)),
 	changeQuantity: (id, quantity) => dispatch(changeQuantity(id, quantity)),
 	useCoupon: couponCode => dispatch(useCoupon(couponCode)),
-	confirmOrder: () => dispatch(confirmOrder())
+	toCheckout: subtotal => dispatch(toCheckout(subtotal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

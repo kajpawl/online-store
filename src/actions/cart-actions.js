@@ -2,6 +2,7 @@ export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
 export const USE_COUPON = 'USE_COUPON';
+export const TO_CHECKOUT = 'TO_CHECKOUT';
 export const CONFIRM_ORDER = 'CONFIRM_ORDER';
 
 // add product to cart
@@ -38,8 +39,9 @@ export function useCoupon(couponCode) {
 }
 
 // finalize order
-export function confirmOrder() {
+export function toCheckout(subtotal) {
   return {
-    type: CONFIRM_ORDER
+    type: TO_CHECKOUT,
+    subtotal
   }
 }

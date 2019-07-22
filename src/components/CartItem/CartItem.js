@@ -10,10 +10,9 @@ const CartItem = props => (
     </Link>
     <label>{(props.cartItem.item.price * props.cartItem.quantity).toFixed(2)} zł</label>
     <label>{props.cartItem.item.price} zł per item</label>
-    <label>Quantity: {props.cartItem.quantity}</label>
+    <button className="quantityButton" onClick={(id, quantity) => props.changeQuantity(props.cartItem.item.id, props.cartItem.quantity - 1)}>-</button>
     <input className="quantityInput" type="number" value={props.cartItem.quantity} onChange={e => props.changeQuantity(props.cartItem.item.id, e.target.value)} />
-    <button className="quantityButton" onClick={(id, quantity) => props.changeQuantity(props.cartItem.item.id, props.cartItem.quantity + 1)}>Add one</button>
-    <button className="quantityButton" onClick={(id, quantity) => props.changeQuantity(props.cartItem.item.id, props.cartItem.quantity - 1)}>Remove one</button>
+    <button className="quantityButton" onClick={(id, quantity) => props.changeQuantity(props.cartItem.item.id, props.cartItem.quantity + 1)}>+</button>
     <button onClick={(id) => props.removeFromCart(props.cartItem.item.id)}>Remove from cart</button>
   </div>
 );

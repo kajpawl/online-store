@@ -4,29 +4,17 @@ import CartProductList from '../CartProductList/CartProductList';
 import './Cart.scss';
 
 const Cart = props => {
-  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost, finalSubtotal } = props;
-
-
-
-
-//  THIS NEEDS TO BE ISOLATED AS A CONTAINER: CouponInputContainer
-
+  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost, finalSubtotal, toCheckout } = props;
 
   let couponInput = null;
-
   const onCouponSubmit = event => {
     event.preventDefault();
     props.useCoupon(couponInput.value)
   };
 
-
-//  END OF THE COUPONINPUTCONTAINER
-
-
-
   return (
     <div className="cart">
-      <Link className="backToShopping" to={"products"}>
+      <Link to={"products"} className="backToShopping">
         Back to shopping
       </Link>
       <CartProductList
@@ -39,12 +27,11 @@ const Cart = props => {
           <b>Subtotal:</b> <span className="value">{finalSubtotal()} zł</span>
         </div>
         <form className="addCouponCode" onSubmit={onCouponSubmit}>
-          <p>Have a Coupon Code?</p>
-          <input className="couponInput" type="text" placeholder="Insert code" ref={node => couponInput = node} />
+          <input className="couponInput" type="text" placeholder="Have a Coupon Code?" ref={node => couponInput = node} />
           <input type="submit" className="couponCodeSubmit" value="Submit" />
         </form>
       </div>
-      <button className="checkoutButton">Proceed to checkout</button>
+      <Link to={"checkout"} className="checkoutButton" onClick={(subtotal) => toCheckout(parseFloat(finalSubtotal()))}>Proceed to checkout</Link>
     </div>
   );
 };
