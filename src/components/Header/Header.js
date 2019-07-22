@@ -7,7 +7,7 @@ const Header = props => {
     <div>
       <nav>
         <NavLink exact to="/" className="shopLogo" activeClassName="active">
-          <img src="" alt="Music shop logo" />
+          <img src="" alt="Board game shop logo" />
         </NavLink>
         <div className="nav-links">
           <NavLink exact to="/home" activeClassName="active">

@@ -7,7 +7,7 @@ const initialState = {
   shownProducts: [],
   searchText: '',
   currentPage: 1,
-  productsPerPage: 2
+  productsPerPage: 6
 };
 
 const productsReducer = function(state = initialState, action) {

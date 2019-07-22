@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Checkout from '../components/Checkout/Checkout';
 import CheckoutBillingDetails from '../components/CheckoutBillingDetails/CheckoutBillingDetails';
 import CheckoutConfirm from '../components/CheckoutConfirm/CheckoutConfirm';
-import { toCheckout } from '../actions/cart-actions';
+// import { toCheckout } from '../actions/cart-actions';
 
 class CheckoutContainer extends Component {
   renderProductlist() {
@@ -55,7 +55,8 @@ class CheckoutContainer extends Component {
 };
 
 const mapStateToProps = store => ({
-	checkoutData: store.cartReducer.checkoutData
+	checkoutData: store.cartReducer.checkoutData,
+  userData: store.cartReducer.userData
 });
 
 const mapDispatchToProps = dispatch => ({
