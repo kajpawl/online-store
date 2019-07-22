@@ -14,6 +14,10 @@ class ProductListContainer extends Component {
 	}
 
 	getProductsForPage() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
 		const { shownProducts, productsPerPage, currentPage } = this.props;
 		const lastShownProductIndex = currentPage * productsPerPage;
 		const firstShownProductIndex = lastShownProductIndex - productsPerPage;

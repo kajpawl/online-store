@@ -9,14 +9,15 @@ class ProductContainer extends Component {
 
 	componentDidMount() {
 		this.props.getProduct(this.props.match.params.id);
-	}
+		window.scrollTo(0, 0);
+	};
 
 	render() {
-		const {selectedProduct, addToCart} = this.props;
+		const {selectedProduct, addToCart, match} = this.props;
 		if (selectedProduct) {
 			return (
 				<div>
-					<Product product={selectedProduct} addToCart={(id) => addToCart(id)} />
+					<Product product={selectedProduct} matchId={match.params.id} addToCart={(id) => addToCart(id)} />
 				</div>
 			)
 		}

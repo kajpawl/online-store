@@ -4,7 +4,7 @@ import './Product.scss';
 const Product = props => (
   <div>
     <div>
-      <img src={require(`../../images/${props.product.imgs}`)} alt={`${props.product.name} cover`} />
+      <img src={require(`../../images/${props.matchId}.jpg`)} alt={`${props.product.name} cover`} />
     </div>
     {props.product.name} <br />
     $ {props.product.price} <br />
