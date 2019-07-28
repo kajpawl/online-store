@@ -1,0 +1,51 @@
+@import "../../styles/variables";
+
+.formWrapper {
+  margin: 30px auto 50px;
+  max-width: 700px;
+  font-size: 13.5px;
+  padding-top: 31px;
+
+  form {
+    width: 100%;
+
+    textarea {
+      resize: none;
+      min-height: 86px;
+      line-height: 1.4em;
+    }
+
+    .input-item {
+      position: relative;
+      padding: 15px;
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-weight: 500;
+        font-size: 13.5px;
+        padding: 12px 0;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        border: 2px solid transparent;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid $secondary;
+        color: $text;
+        transition: $transition;
+        z-index: 999;
+
+        &::placeholder {
+          text-transform: uppercase;
+          color: $secondary;
+        }
+
+        &:focus,
+        &.active {
+          border-bottom: 2px solid $text;
+        }
+      }
+    }
+  }
+}

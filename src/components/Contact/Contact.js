@@ -16,27 +16,23 @@ const Contact = props => {
           </p>
         </div>
       </div>
-      <div className="row">
+      <div className="row formContainer">
         <div className="col-12 formWrapper">
           <form action="https://formspree.io/kjtk@o2.pl" method="POST">
             <div className="row">
               <div className="col-12 col-md-6 input-item">
-                <input type="text" name="name" />
-                <div className="input-name">Name</div>
+                <input type="text" name="name" placeholder="Name" />
               </div>
               <div className="col-12 col-md-6 input-item">
-                <input type="email" name="mail-address" />
-                <div className="input-name">Email</div>
+                <input type="email" name="mail-address" placeholder="Email" />
               </div>
               <div className="col-12 input-item">
-                <input type="text" name="subject" />
-                <div className="input-name">Subject</div>
+                <input type="text" name="subject" placeholder="Subject" />
               </div>
               <div className="col-12 input-item">
-                <textarea name="message"></textarea>
-                <div className="input-name">Message</div>
+                <textarea name="message" placeholder="Message"></textarea>
               </div>
-              <input type="submit" value="Send message" class="btn btn-primary" />
+              <input type="submit" value="Send message" className="btn" />
             </div>
           </form>
         </div>

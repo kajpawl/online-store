@@ -19,7 +19,8 @@
         color: $text-secondary;
       }
 
-      &.active {
+      &.active,
+      &:active {
         color: $active;
       }
     }
