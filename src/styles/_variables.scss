@@ -1,0 +1,39 @@
+$primary: #fff;
+$secondary: #bdbdbd;
+$background: #f5f5f5;
+$text: #333;
+$text-secondary: #969696;
+$active: #191919;
+$promoted-item: red;
+$last-item: blue;
+
+//  TRANSITIONS
+
+$transition: .35s;
+$transition-quick: .2s;
+$transition-slow: .6s;
+
+// DETAILS
+
+$box-shadow-faint: 0 3px 12px -7px rgba(0, 0, 0, 0.3);
+$box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
+
+
+
+
+
+
+
+
+
+// Hover state animation - set value in milliseconds
+
+//for buttons background
+%background-animation-time {
+  transition-duration: 250ms !important;
+}
+
+//for texts and icons
+%text-animation-time {
+  transition-duration: 250ms !important;
+}

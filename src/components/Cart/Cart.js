@@ -24,14 +24,28 @@ const Cart = props => {
       />
       <div className="subtotal">
         <div className="subtotalLine">
-          <b>Subtotal:</b> <span className="value">{finalSubtotal()} zł</span>
+          <b>Subtotal:</b> <span className="value">$ {finalSubtotal()}</span>
         </div>
         <form className="addCouponCode" onSubmit={onCouponSubmit}>
-          <input className="couponInput" type="text" placeholder="Have a Coupon Code?" ref={node => couponInput = node} />
-          <input type="submit" className="couponCodeSubmit" value="Submit" />
+          <input 
+            className="couponInput" 
+            type="text" 
+            placeholder="Have a Coupon Code?" 
+            ref={node => couponInput = node} 
+          />
+          <input 
+            type="submit" 
+            className="couponCodeSubmit" 
+            value="Submit" 
+          />
         </form>
       </div>
-      <Link to={"checkout"} className="checkoutButton" onClick={(subtotal) => toCheckout(parseFloat(finalSubtotal()))}>Proceed to checkout</Link>
+      <Link to={"checkout"} 
+        className="checkoutButton" 
+        onClick={(subtotal) => toCheckout(parseFloat(finalSubtotal()))}
+      >
+        Proceed to checkout
+      </Link>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import SortingPanel from '../components/SortingPanel/SortingPanel';
 import PaginationPanel from '../components/PaginationPanel/PaginationPanel';
 import { getProducts, sortProducts, getCategory, searchProducts, getProduct, changeProductPage } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
+import './ProductListContainer.scss';
 
 class ProductListContainer extends Component {
 	componentDidMount() {
@@ -34,17 +35,28 @@ class ProductListContainer extends Component {
 	}
 
 	render() {
-		const { searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage } = this.props;
+		const { searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
 		return (
 			<div className="productListContainer">
-				<div className="search">
-					<input type="text" onChange={(e) => searchProducts(e.target.value)} />
+				<div className="mainContent container">
+					<div className="row">
+						<SortingPanel 
+							sortProducts={(sortingType) => sortProducts(sortingType)} 
+						/>
+						<ProductList 
+							products={this.getProductsForPage()} 
+							getProduct={(id) => getProduct(id)} 
+							addToCart={(id) => addToCart(id)} 
+							cartItems={cartItems}
+						/>
+					</div>
+					<PaginationPanel 
+						changePageNumber={(targetNumber) => changeProductPage(targetNumber)} 
+						currentPage={currentPage} renderPaginationButtons={this.renderPaginationButtons()} 
+					/>
 				</div>
-				<SortingPanel sortProducts={(sortingType) => sortProducts(sortingType)} />
-				<ProductList products={this.getProductsForPage()} getProduct={(id) => getProduct(id)} addToCart={(id) => addToCart(id)} />
-				<PaginationPanel changePageNumber={(targetNumber) => changeProductPage(targetNumber)} currentPage={currentPage} renderPaginationButtons={this.renderPaginationButtons()} />
 			</div>
-		)
+		);
 	}
 };
 
@@ -53,7 +65,8 @@ const mapStateToProps = store => ({
 	shownProducts: store.productsReducer.shownProducts,
 	searchText: store.productsReducer.searchText,
 	currentPage: store.productsReducer.currentPage,
-	productsPerPage: store.productsReducer.productsPerPage
+	productsPerPage: store.productsReducer.productsPerPage,
+	cartItems: store.cartReducer.cartItems
 });
 
 const mapDispatchToProps = dispatch => ({

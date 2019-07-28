@@ -6,7 +6,6 @@ import { getProduct } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
 
 class ProductContainer extends Component {
-
 	componentDidMount() {
 		this.props.getProduct(this.props.match.params.id);
 		window.scrollTo(0, 0);

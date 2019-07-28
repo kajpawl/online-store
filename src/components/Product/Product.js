@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.scss';
 
 const Product = props => (
@@ -14,7 +15,12 @@ const Product = props => (
       <h4><b>Description:</b></h4>
       <div dangerouslySetInnerHTML={{__html: props.product.description}} />
     </div>
-    <button onClick={() => props.addToCart(props.product.id)}>Add to cart</button>
+    <button onClick={() => props.addToCart(props.product.id)}>
+      Add to cart
+    </button>
+    <Link to={"../products"} className="backToShopping">
+      Back to shopping
+    </Link>
   </div>
 );
 

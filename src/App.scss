@@ -1,0 +1,19 @@
+@import "/styles/variables";
+
+body {
+  color: $text;
+
+  .active {
+    color: $active;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text;
+    transition: $transition;
+
+    &:hover {
+      color: $active;
+    }
+  }
+}

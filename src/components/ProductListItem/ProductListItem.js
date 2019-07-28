@@ -1,20 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ProductListItem.scss';
 
 const ProductListItem = props => (
-	<div>
-		<div>
-			<img src={require(`../../images/${props.product.imgs}`)} alt="ProductListItem" />
+	<div className="col-12 col-md-6">
+		<div className="productListItem">
+			<Link className="miniature" to={"products/" + props.product.id}>
+				<div className="thumbnail">
+					{props.product.promoted ? <div>
+						<div className="promotedItem">Promoted</div>
+					</div> : ""}
+					{props.product.stock === 1 ? <div className="lastItem">
+						Last item
+					</div> : ""}
+					<img className="productListItemImage" src={require(`../../images/${props.product.imgs}`)} alt="ProductListItem" />
+				</div>
+			</Link>
+			<div className="productListItemLabel">
+				<Link className="miniature" to={"products/" + props.product.id}>
+					<h3>{props.product.name}</h3>
+				</Link>
+				<label className="currentPrice">$ {props.product.price}</label>
+				{props.product.promoted ?
+					<label className="oldPrice">old price: <span>$ {props.product.oldPrice}</span></label> 
+				: ""}
+				<button className="addToCart" onClick={(id) => (props.addToCart(props.product.id))}>
+					{props.cartItems.find(product => product.item === props.product) ? 
+						<span>
+							<FontAwesomeIcon icon="check-circle" />
+							In cart ({props.cartItems.find(product => product.item === props.product).quantity})
+						</span> 
+					:
+						<span>
+							<FontAwesomeIcon icon="cart-arrow-down" />
+							Add to cart
+						</span>
+					}
+				</button>
+			</div>
 		</div>
-		<h3>{props.product.name}</h3>
-		<label>$ {props.product.price}</label>
-		{props.product.promoted ? <div>
-			<div>old price: $ {props.product.oldPrice}</div> 
-			<div className="promotedTag">Promoted item</div>
-		</div> : ""}
-		{props.product.stock === 1 ? <div className="lastInStock">
-			Last in stock!
-		</div> : ""}
 	</div>
 );
 

@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.wrapper {
+  position: fixed;
+  width: 100%;
+  max-width: 240px;
+}
+
+button {
+  display: block;
+  background: none;
+  border: none;
+  color: $text-secondary;
+  transition: $transition-quick;
+
+  &:active,
+  &:hover {
+    color: $active;
+  }
+}
+
+.section {
+  padding: 20px 0 50px;
+  margin-right: 15px;
+  border-bottom: 2px solid $secondary;
+}
+
+@media (max-width: 767px) {
+
+  .wrapper {
+    position: static;
+    margin: auto;
+  }
+}

@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import Header from '../Header/Header';
+import HeaderContainer from '../../containers/HeaderContainer';
 import Footer from '../Footer/Footer';
 import './MainLayout.scss';
 
 export default class MainLayout extends Component {
   render() {
     return (
-      <div className="container">
-        <Header />
+      <main>
+        <HeaderContainer />
         {this.props.children}
         <Footer />
-      </div>
+      </main>
     );
   }
 }

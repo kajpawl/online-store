@@ -1,0 +1,35 @@
+.productListContainer {
+
+  .mainContent:before,
+  .mainContent:after {
+      content: " ";
+      clear: both;
+      display: block;
+  }
+
+  .sortingPanel {
+    float: left;
+    width: 30%;
+  }
+
+  .productList {
+    float: right;
+    width: 70%;
+  }
+
+  .paginationPanel {
+    text-align: right;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .productListContainer {
+
+    .sortingPanel,
+    .productList {
+      width: 100%;
+      float: none;
+    }
+  }
+}

@@ -23,20 +23,25 @@ import {
   CarouselCaption
 } from 'reactstrap';
 import './index.css';
+import './App.scss';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faSpinner, faShoppingCart, faCartArrowDown, faCheckCircle, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 import MainLayout from './components/MainLayout/MainLayout';
-import { Root } from './components/Root';
 import Home from './components/Home/Home';
 import ProductListContainer from './containers/ProductListContainer';
 import ProductContainer from './containers/ProductContainer';
 import CartContainer from './containers/CartContainer';
 import CheckoutContainer from './containers/CheckoutContainer';
 
-// import { Faq } from './components/Faq/Faq';
-// import { Terms } from './components/Terms/Terms';
-// import { Contact } from './components/Contact/Contact';
-// import { User } from './components/User';
+import Faq from './components/Faq/Faq';
+import Contact from './components/Contact/Contact';
+import Terms from './components/Terms/Terms';
 import NoMatch from './components/NoMatch/NoMatch';
+
+library.add(fab, faSpinner, faShoppingCart, faCartArrowDown, faCheckCircle, faArrowLeft, faArrowRight)
 
 class App extends React.Component {
 	render() {
@@ -46,8 +51,9 @@ class App extends React.Component {
 					<BrowserRouter>
 						<MainLayout>
 							<Switch>
-								<Route exact path={'/'} component={Root} />
+								<Route exact path={'/'} component={Home} />
 								<Route exact path={'/home'} component={Home} />
+								
 								<Route exact path={'/products'} component={ProductListContainer} />
 								<Route exact path={'/products/:id'} component={ProductContainer} />
 								<Route exact path={'/cart'} component={CartContainer} />
@@ -55,12 +61,9 @@ class App extends React.Component {
 								<Route exact path={'/checkout/billing'} component={CheckoutContainer} />
 								<Route exact path={'/checkout/confirm'} component={CheckoutContainer} />
 
-							{/*
 								<Route exact path={'/faq'} component={Faq} />
-								<Route exact path={'/terms'} component={Terms} />
 								<Route exact path={'/contact'} component={Contact} />
-
-							*/}
+								<Route exact path={'/terms'} component={Terms} />
 								<Route component={NoMatch} />
 							</Switch>
 						</MainLayout>
