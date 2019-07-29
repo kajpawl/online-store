@@ -15,10 +15,6 @@ class ProductListContainer extends Component {
   }
 
   getProductsForPage() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
     const { shownProducts, productsPerPage, currentPage, shownCategory } = this.props;
     const lastShownProductIndex = currentPage * productsPerPage;
     const firstShownProductIndex = lastShownProductIndex - productsPerPage;
@@ -30,11 +26,18 @@ class ProductListContainer extends Component {
       shownProducts.slice(firstShownProductIndex, lastShownProductIndex);
   }
 
+  pageScrollUp() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   renderPaginationButtons() {
-    const { shownProducts, productsPerPage, currentPage, changeProductPage } = this.props;
+    const { shownProducts, shownCategory, productsPerPage, currentPage, changeProductPage } = this.props;
     let paginationButtons = [];
-    for (let i = 0; i < (shownProducts.length / productsPerPage); i++) {
-      paginationButtons.push(<li key={i} className={`paginationButton ${i + 1 === currentPage ? 'active' : ''}`} onClick={() => changeProductPage(i + 1)}>{i + 1}</li>);
+    for (let i = 0; i < ((shownCategory === 'All' ? shownProducts.length : shownProducts.filter(product => product.category === shownCategory).length) / productsPerPage); i++) {
+      paginationButtons.push(<li key={i} className={`paginationButton ${i + 1 === currentPage ? 'active' : ''}`} onClick={() => {this.pageScrollUp(); changeProductPage(i + 1)}}>{i + 1}</li>);
     };
     return paginationButtons;
   }
@@ -46,8 +49,8 @@ class ProductListContainer extends Component {
         <div className="mainContent container">
           <div className="row">
             <SortingPanel 
-              sortProducts={(sortingType) => sortProducts(sortingType)} 
-              getCategory={(category) => getCategory(category)}
+              sortProducts={(sortingType) => {this.pageScrollUp(); sortProducts(sortingType)}} 
+              getCategory={(category) => {this.pageScrollUp(); getCategory(category)}}
               getAll={() => searchProducts('')}
             />
             <ProductList 
@@ -59,7 +62,9 @@ class ProductListContainer extends Component {
           </div>
           <PaginationPanel 
             changePageNumber={(targetNumber) => changeProductPage(targetNumber)} 
-            currentPage={currentPage} renderPaginationButtons={this.renderPaginationButtons()} 
+            currentPage={currentPage} 
+            renderPaginationButtons={this.renderPaginationButtons()} 
+            pageScrollUp={() => this.pageScrollUp()}
           />
         </div>
       </div>

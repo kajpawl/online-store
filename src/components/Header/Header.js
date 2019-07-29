@@ -6,7 +6,7 @@ import './Header.scss';
 
 class Header extends Component  {
   render () {
-    const { searchProducts, cartItems } = this.props;
+    const { searchProducts, cartItems, searchText } = this.props;
     return (
       <header>
         <div className="fixedWrapper">
@@ -41,9 +41,9 @@ class Header extends Component  {
               </NavLink>
             </div>
             <div className="search">
-              <div className="searchWrapper">
+              <div className={`searchWrapper ${searchText !== '' ? "extended" : ""}`}>
                 <input type="text" 
-                  onChange={(e) => searchProducts(e.target.value)} 
+                  onChange={(e) => searchProducts(e.target.value)}
                 />
                 <FontAwesomeIcon icon="search" className="searchIcon" />
               </div>

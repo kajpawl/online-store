@@ -140,6 +140,14 @@ header {
       position: relative;
       transition: $transition;
       opacity: .8;
+
+      &.extended {
+
+        input {
+          min-width: 110px;
+          color: $text;
+        }
+      }
     }
 
     input {
@@ -148,7 +156,7 @@ header {
       border: none;
       background: transparent;
       outline: none;
-      padding: 0px 26px 0 14px;
+      padding: 0px 30px 0 14px;
       width: 40px;
       transition: $transition;
       color: transparent;
