@@ -5,6 +5,7 @@ const initialState = {
   products: productsData,
   selectedProduct: {},
   shownProducts: [],
+  shownCategories: [],
   searchText: '',
   currentPage: 1,
   productsPerPage: 6

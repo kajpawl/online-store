@@ -11,7 +11,7 @@ import './index.css';
 import './App.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faAngleDoubleLeft, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 import MainLayout from './components/MainLayout/MainLayout';
 import ProductListContainer from './containers/ProductListContainer';
@@ -26,27 +26,24 @@ import Terms from './components/Terms/Terms';
 import NoMatch from './components/NoMatch/NoMatch';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
-library.add(faSpinner, faAngleDoubleLeft, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight);
+library.add(faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight);
 
 class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
 				<div>
-					<BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
+					<BrowserRouter>
 						<ScrollToTop>
 							<MainLayout>
 								<Switch>
-									<Route exact path={'/'} component={HomeContainer} />
-									<Route exact path={'/home'} component={HomeContainer} />
-									
+									<Route exact path={'/'} component={HomeContainer} />			
 									<Route exact path={'/products'} component={ProductListContainer} />
 									<Route exact path={'/products/:id'} component={ProductContainer} />
 									<Route exact path={'/cart'} component={CartContainer} />
 									<Route exact path={'/checkout'} component={CheckoutContainer} />
 									<Route exact path={'/checkout/billing'} component={CheckoutContainer} />
 									<Route exact path={'/checkout/confirm'} component={CheckoutContainer} />
-
 									<Route exact path={'/faq'} component={Faq} />
 									<Route exact path={'/contact'} component={Contact} />
 									<Route exact path={'/terms'} component={Terms} />

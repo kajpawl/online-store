@@ -74,7 +74,7 @@
   {
     "id": "7",
     "name": "Citadels", 
-    "category": "family", 
+    "category": "Family", 
     "price": 34.99,
     "oldPrice": 34.99, 
     "stock": 2, 
@@ -290,7 +290,7 @@
   {
     "id": "25",
     "name": "Skull", 
-    "category": "party", 
+    "category": "Party", 
     "price": 24.99,
     "oldPrice": 24.99, 
     "stock": 2, 

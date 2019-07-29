@@ -47,7 +47,19 @@
         }
       }
 
+      .categoryLabel {
+
+        span {
+          font-weight: 600;
+        }
+      }
+
       .stockLabel {
+        text-align: center;
+        padding-top: 5px;
+        max-width: 194px;
+        display: block;
+        margin: 0 auto;
 
         span {
           font-weight: 600;

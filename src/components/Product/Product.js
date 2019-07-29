@@ -25,7 +25,7 @@ const Product = props => (
               <div className="col-6">
                 <label className="priceLabel">Price: <span>$ {props.product.price}</span></label>
                 {props.product.promoted === true ? <label className="oldPriceLabel">Old price: <span>$ {props.product.oldPrice}</span></label> : ""}
-                <label className="stockLabel">In stock: <span>{props.product.stock}</span></label>
+                <label className="categoryLabel">Category: <span>{props.product.category}</span></label>
               </div>
               <div className="col-6">
                 <button className="backgroundBtn" onClick={() => props.addToCart(props.product.id)}>
@@ -41,6 +41,7 @@ const Product = props => (
                     </span>
                   }
                 </button>
+                <label className="stockLabel">In stock: <span>{props.product.stock}</span></label>
               </div>
             </div>
           </div>

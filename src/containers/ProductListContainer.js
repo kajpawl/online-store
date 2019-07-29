@@ -22,6 +22,9 @@ class ProductListContainer extends Component {
     const { shownProducts, productsPerPage, currentPage } = this.props;
     const lastShownProductIndex = currentPage * productsPerPage;
     const firstShownProductIndex = lastShownProductIndex - productsPerPage;
+    // shownProducts.filter(product => if (filteredCategory !== null) {
+    //   product.category === filteredCategory
+    // });
     return shownProducts.slice(firstShownProductIndex, lastShownProductIndex);
   }
 
@@ -42,6 +45,8 @@ class ProductListContainer extends Component {
           <div className="row">
             <SortingPanel 
               sortProducts={(sortingType) => sortProducts(sortingType)} 
+              getCategory={(category) => getCategory(category)}
+              getAll={() => searchProducts('')}
             />
             <ProductList 
               products={this.getProductsForPage()} 
