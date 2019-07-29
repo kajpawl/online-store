@@ -13,7 +13,7 @@ const Cart = props => {
   };
 
   return (
-    <div className="cart">
+    <main className="cart">
       <Link to={"products"} className="backToShopping">
         Back to shopping
       </Link>
@@ -46,7 +46,7 @@ const Cart = props => {
       >
         Proceed to checkout
       </Link>
-    </div>
+    </main>
   );
 };
 

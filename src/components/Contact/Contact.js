@@ -3,7 +3,7 @@ import './Contact.scss';
 
 const Contact = props => {
   return (
-    <div className="container">
+    <main className="container">
       <div className="row">
         <div className="col-12">
           <h2>Contact</h2>
@@ -20,24 +20,24 @@ const Contact = props => {
         <div className="col-12 formWrapper">
           <form action="https://formspree.io/kjtk@o2.pl" method="POST">
             <div className="row">
-              <div className="col-12 col-md-6 input-item">
+              <div className="col-12 col-md-6 inputItem">
                 <input type="text" name="name" placeholder="Name" />
               </div>
-              <div className="col-12 col-md-6 input-item">
+              <div className="col-12 col-md-6 inputItem">
                 <input type="email" name="mail-address" placeholder="Email" />
               </div>
-              <div className="col-12 input-item">
+              <div className="col-12 inputItem">
                 <input type="text" name="subject" placeholder="Subject" />
               </div>
-              <div className="col-12 input-item">
+              <div className="col-12 inputItem">
                 <textarea name="message" placeholder="Message"></textarea>
               </div>
-              <input type="submit" value="Send message" className="btn" />
+              <input type="submit" value="&#9993; Send message" className="backgroundBtn" />
             </div>
           </form>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

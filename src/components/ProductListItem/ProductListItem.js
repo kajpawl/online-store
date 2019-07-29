@@ -19,7 +19,7 @@ const ProductListItem = props => (
 			</Link>
 			<div className="productListItemLabel">
 				<Link className="miniature" to={"products/" + props.product.id}>
-					<h3>{props.product.name}</h3>
+					<h3><span>{props.product.name}</span></h3>
 				</Link>
 				<label className="currentPrice">$ {props.product.price}</label>
 				{props.product.promoted ?

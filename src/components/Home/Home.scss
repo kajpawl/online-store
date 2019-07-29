@@ -1,0 +1,63 @@
+@import "../../styles/variables";
+
+.home {
+
+  .jumbotron {
+    background-image: url(../../images/hero-background.jpg);
+    background-size: cover;
+    background-position: top center;
+    height: 45vh;
+    min-height: 400px;
+    position: relative;
+
+    .jumbotronContent {
+      position: absolute;
+      right: 0;
+      padding: 50px;
+      background: rgba(255, 255, 255, .7);
+      width: 45vw;
+
+      h1 {
+        text-transform: uppercase;
+        font-weight: 700;letter-spacing: 1px;
+
+        span {
+          color: $promoted-item;
+        }
+      }
+
+
+      .backgroundBtn {
+        margin-top: 30px;
+        background-color: $promoted-item;
+        height: 50px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+
+  a:hover {
+    text-decoration: none
+  }
+
+  .promotedItems {
+
+    h2 {
+      text-transform: capitalize;
+      font-size: 28px;
+    }
+  }
+
+  .buttonContainer {
+
+    a .backgroundBtn {
+      margin: 24px auto;
+    }
+  }
+
+  .productList {
+    max-width: 950px;
+    margin: auto;
+  }
+}

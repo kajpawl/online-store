@@ -1,15 +1,172 @@
+@import "../../styles/variables";
 
-nav {
-  a, 
-  &:visited {
-  	color: #000;
+header {
+  height: 120px;
 
-    &.active {
-    	color: red;
+  .fixedWrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 600;
+    background-color: $primary;
+    box-shadow: $box-shadow-faint;
+  }
+
+  nav {
+    height: 70px;
+    line-height: 70px;
+
+    &:before,
+    &:after {
+      content: " ";
+      clear: both;
+      display: block;
     }
   }
 
+  .search {
+    float: right;
+  }
+
   .nav-links {
-    text-align: right
+    float: right;
+
+    a {
+    	color: $text;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 15px;
+      transition: $transition-quick;
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      line-height: 40px;
+
+      &:visited {
+        color: $text;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $active;
+      }
+
+      &.active {
+      	color: $promoted-item;
+        font-weight: 600;
+      }
+
+      &:before {
+        position: absolute;
+        bottom: 21px;
+        left: 13px;
+        right: 15px;
+        content: '';
+        width: 0px;
+        height: 1px;
+        background: $text;
+        transition: $transition-quick;
+        transition-origin: center;
+        opacity: .4;
+      }
+
+      &:hover:before {
+        width: calc(66% - 13px);
+      }
+
+      &.active:hover:before {
+        background-color: $promoted-item;
+      }
+    }
+
+    .cartIconWrapper {
+      position: relative;
+
+      .cartIcon {
+        font-size: 22px;
+      }
+
+      .itemsInCart {
+        text-align: center;
+        background-color: $promoted-item;
+        color: $background;
+        font-size: 13px;
+        font-weight: 700;
+        position: absolute;
+        bottom: 3px;
+        right: -9px;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        padding: 0 5px;
+        line-height: 16px;
+        display: block;
+        transition: $transition-quick;
+      }
+    }
+
+    a:last-child.active {
+      text-decoration: underline;
+      
+      .cartIconWrapper {
+
+        .itemsInCart {
+          background-color: $text;
+          opacity: .8;
+        }  
+      }
+    }
+  }
+
+  .shopLogoContainer {
+
+    .shopLogo {
+      max-width: 250px;
+    }
+  }
+
+  .search {
+    height: 70px;
+    margin-right: 15px;
+
+    .searchWrapper {
+      margin-top: 13px;
+      border: 2px solid $text;
+      height: 44px;
+      line-height: 42px;
+      display: inline-block;
+      border-radius: 23px;
+      overflow: hidden;
+      width: auto;
+      position: relative;
+      transition: $transition;
+      opacity: .8;
+    }
+
+    input {
+      display: block;
+      height: 38px;
+      border: none;
+      background: transparent;
+      outline: none;
+      padding: 0px 26px 0 14px;
+      width: 40px;
+      transition: $transition;
+      color: transparent;
+
+      &:focus {
+        width: 220px;
+        color: $text;
+      }
+    }
+
+    .searchIcon {
+      position: absolute;
+      top: calc(50% - 9px);
+      right: 10px;
+      font-size: 18px;
+      width: auto;
+      pointer-events: none;
+    }
+
   }
 }

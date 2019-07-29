@@ -12,12 +12,10 @@ class ProductContainer extends Component {
 	};
 
 	render() {
-		const {selectedProduct, addToCart, match} = this.props;
+		const {selectedProduct, addToCart, cartItems, match} = this.props;
 		if (selectedProduct) {
 			return (
-				<div>
-					<Product product={selectedProduct} matchId={match.params.id} addToCart={(id) => addToCart(id)} />
-				</div>
+				<Product cartItems={cartItems} product={selectedProduct} matchId={match.params.id} addToCart={(id) => addToCart(id)} />
 			)
 		}
 		else {
@@ -28,6 +26,7 @@ class ProductContainer extends Component {
 
 const mapStateToProps = store => ({
 	selectedProduct: store.productsReducer.selectedProduct,
+	cartItems: store.cartReducer.cartItems
 });
 
 const mapDispatchToProps = dispatch => ({

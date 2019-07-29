@@ -6,11 +6,11 @@ import './MainLayout.scss';
 export default class MainLayout extends Component {
   render() {
     return (
-      <main>
+      <div>
         <HeaderContainer />
         {this.props.children}
         <Footer />
-      </main>
+      </div>
     );
   }
 }

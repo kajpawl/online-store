@@ -5,7 +5,7 @@ import './Checkout.scss';
 const Checkout = props => {
   const { checkoutData, renderProductlist } = props;
   return checkoutData.cartItems ? (
-    <div className="checkout">
+    <main className="checkout">
       <div className="checkoutData">
         <div className="checkoutProductList">
           <table>
@@ -46,7 +46,7 @@ const Checkout = props => {
       <Link to={"cart"} className="backToCart">
         Back to cart
       </Link>
-    </div>
+    </main>
   ) : (<div className="emptyOrder">Your order is empty</div>);
 };
 

@@ -3,7 +3,7 @@
 .formWrapper {
   margin: 30px auto 50px;
   max-width: 700px;
-  font-size: 13.5px;
+  font-size: 14px;
   padding-top: 31px;
 
   form {
@@ -15,15 +15,26 @@
       line-height: 1.4em;
     }
 
-    .input-item {
+    .inputItem {
       position: relative;
       padding: 15px;
+
+      .input-name {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        text-transform: uppercase;
+        transform: translateY(12px);
+        transition: .4s;
+        z-index: 0;
+        color: $text;
+      }
 
       input[type="text"],
       input[type="email"],
       textarea {
         font-weight: 500;
-        font-size: 13.5px;
+        font-size: 14px;
         padding: 12px 0;
         width: 100%;
         outline: none;
@@ -43,9 +54,25 @@
 
         &:focus,
         &.active {
-          border-bottom: 2px solid $text;
+          border-bottom: 2px solid $promoted-item;
+
+          &+ .input-name {
+            transform: translateY(-5px);
+            font-size: 11px;
+            color: $secondary;
+          }
         }
       }
+
+      textarea {
+        &+ .input-name {
+          transform: translateY(56px);
+        }
+      }
+    }
+
+    .backgroundBtn {
+      margin: 28px 15px;
     }
   }
 }
