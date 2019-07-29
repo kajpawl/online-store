@@ -49,7 +49,6 @@ class ProductListContainer extends Component {
               sortProducts={(sortingType) => sortProducts(sortingType)} 
               getCategory={(category) => getCategory(category)}
               getAll={() => searchProducts('')}
-              filteredProducts={this.getProductsForPage()}
             />
             <ProductList 
               products={this.getProductsForPage()} 
