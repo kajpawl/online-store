@@ -5,7 +5,7 @@ const initialState = {
   products: productsData,
   selectedProduct: {},
   shownProducts: [],
-  shownCategories: [],
+  shownCategory: 'All',
   searchText: '',
   currentPage: 1,
   productsPerPage: 6
@@ -59,8 +59,7 @@ const productsReducer = function(state = initialState, action) {
       };
 
     case GET_CATEGORY:
-      const categoryProducts = state.products.filter(product => product.category === action.category);
-      return Object.assign({}, state, {shownProducts: categoryProducts, currentPage: 1});
+      return Object.assign({}, state, {shownCategory: action.category, currentPage: 1});
 
     case SEARCH_PRODUCTS:
       const newSearchText = action.searchText.toLowerCase();

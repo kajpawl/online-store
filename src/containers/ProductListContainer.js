@@ -19,13 +19,15 @@ class ProductListContainer extends Component {
       top: 0,
       behavior: 'smooth'
     });
-    const { shownProducts, productsPerPage, currentPage } = this.props;
+    const { shownProducts, productsPerPage, currentPage, shownCategory } = this.props;
     const lastShownProductIndex = currentPage * productsPerPage;
     const firstShownProductIndex = lastShownProductIndex - productsPerPage;
-    // shownProducts.filter(product => if (filteredCategory !== null) {
-    //   product.category === filteredCategory
-    // });
-    return shownProducts.slice(firstShownProductIndex, lastShownProductIndex);
+    return shownCategory !== 'All' ?
+      shownProducts.filter(product => {
+        return product.category === shownCategory
+      }).slice(firstShownProductIndex, lastShownProductIndex)
+    :
+      shownProducts.slice(firstShownProductIndex, lastShownProductIndex);
   }
 
   renderPaginationButtons() {
@@ -38,7 +40,7 @@ class ProductListContainer extends Component {
   }
 
   render() {
-    const { searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
+    const { shownCategory, searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
     return (
       <div className="productListContainer">
         <div className="mainContent container">
@@ -47,6 +49,7 @@ class ProductListContainer extends Component {
               sortProducts={(sortingType) => sortProducts(sortingType)} 
               getCategory={(category) => getCategory(category)}
               getAll={() => searchProducts('')}
+              filteredProducts={this.getProductsForPage()}
             />
             <ProductList 
               products={this.getProductsForPage()} 
@@ -68,6 +71,7 @@ class ProductListContainer extends Component {
 const mapStateToProps = store => ({
   products: store.productsReducer.products,
   shownProducts: store.productsReducer.shownProducts,
+  shownCategory: store.productsReducer.shownCategory,
   searchText: store.productsReducer.searchText,
   currentPage: store.productsReducer.currentPage,
   productsPerPage: store.productsReducer.productsPerPage,
