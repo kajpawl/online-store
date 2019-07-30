@@ -145,6 +145,7 @@ header {
 
         input {
           min-width: 110px;
+          padding-right: 30px;
           color: $text;
         }
       }
@@ -156,7 +157,7 @@ header {
       border: none;
       background: transparent;
       outline: none;
-      padding: 0px 30px 0 14px;
+      padding: 0px 26px 0 14px;
       width: 40px;
       transition: $transition;
       color: transparent;

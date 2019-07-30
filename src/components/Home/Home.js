@@ -42,7 +42,7 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-12 buttonContainer">
               <Link to={"../products"} className="backToShopping">
-                <button className="backgroundBtn">
+                <button className="backgroundBtn" onClick={() => getCategory('All')}>
                   <FontAwesomeIcon icon="search" className="searchIcon" />
                   See all products
                 </button>

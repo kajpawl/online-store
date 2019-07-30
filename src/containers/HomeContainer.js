@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from '../components/Home/Home';
-import { getProducts, sortProducts, searchProducts, getProduct } from '../actions/products-actions';
+import { getProducts, sortProducts, searchProducts, getProduct, getCategory } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
 import './ProductListContainer.scss';
 
@@ -18,13 +18,14 @@ class HomeContainer extends Component {
   }
 
   render() {
-    const { searchProducts, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
+    const { searchProducts, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems, getCategory } = this.props;
     return (
       <Home 
         products={this.getProductsForPage()} 
         getProduct={(id) => getProduct(id)} 
         addToCart={(id) => addToCart(id)} 
         cartItems={cartItems}
+        getCategory={(category) => getCategory(category)}
       />
     );
   }
@@ -42,6 +43,7 @@ const mapDispatchToProps = dispatch => ({
   searchProducts: searchText => dispatch(searchProducts(searchText)),
   getProduct: id => dispatch(getProduct(id)),
   addToCart: id => dispatch(addToCart(id)),
+  getCategory: category => dispatch(getCategory(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

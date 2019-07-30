@@ -3,7 +3,7 @@ import './Contact.scss';
 
 const Contact = props => {
   return (
-    <main className="container">
+    <main className="container contact">
       <div className="row">
         <div className="col-12">
           <h2>Contact</h2>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchProducts } from '../actions/products-actions';
+import { searchProducts, getCategory } from '../actions/products-actions';
 import Header from '../components/Header/Header'
 
 const mapStateToProps = store => ({
@@ -9,7 +9,8 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	searchProducts: searchText => dispatch(searchProducts(searchText))
+	searchProducts: searchText => dispatch(searchProducts(searchText)),
+  getCategory: category => dispatch(getCategory(category))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

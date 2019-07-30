@@ -6,7 +6,7 @@ import './Header.scss';
 
 class Header extends Component  {
   render () {
-    const { searchProducts, cartItems, searchText } = this.props;
+    const { searchProducts, cartItems, searchText, getCategory } = this.props;
     return (
       <header>
         <div className="fixedWrapper">
@@ -18,7 +18,7 @@ class Header extends Component  {
               <NavLink exact to="/" activeClassName="active">
                 Home
               </NavLink>
-              <NavLink to="/products" activeClassName="active">
+              <NavLink to="/products" activeClassName="active" onClick={() => getCategory('All')}>
                 Products
               </NavLink>
               <NavLink exact to="/faq" activeClassName="active">

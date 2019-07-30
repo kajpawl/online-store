@@ -9,9 +9,10 @@ import './ProductListContainer.scss';
 
 class ProductListContainer extends Component {
   componentDidMount() {
-    const { getProducts, searchProducts } = this.props;
+    const { getProducts, searchProducts, getCategory } = this.props;
     getProducts();
     searchProducts('');
+    // getCategory('All');
   }
 
   getProductsForPage() {
@@ -52,6 +53,7 @@ class ProductListContainer extends Component {
               sortProducts={(sortingType) => {this.pageScrollUp(); sortProducts(sortingType)}} 
               getCategory={(category) => {this.pageScrollUp(); getCategory(category)}}
               getAll={() => searchProducts('')}
+              shownCategory={shownCategory}
             />
             <ProductList 
               products={this.getProductsForPage()} 
