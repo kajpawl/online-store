@@ -13,7 +13,6 @@
 
   .cell {
     height: 100%;
-    // max-height: 180px;
 
     a {
 
@@ -58,6 +57,7 @@
         transition: $transition;
 
         &:hover {
+          filter: brightness(1.05);
           opacity: .8;
         }
       }

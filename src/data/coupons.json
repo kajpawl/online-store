@@ -2,10 +2,10 @@
   {
     "code": "SUMMER-19", 
     "type": "minus", 
-    "value": 45
+    "value": 10
   },
   {
-    "code": "CATHARSIS", 
+    "code": "PERCENT", 
     "type": "percent", 
     "value": 15
   },

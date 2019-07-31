@@ -40,9 +40,9 @@ const Cart = props => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="subtotal">
+            <div className="subtotalContainer">
               <div className="subtotalLine">
-                <b>Subtotal:</b> <span className="value">$ {finalSubtotal()}</span>
+                Subtotal: <span className="value">$ {finalSubtotal()}</span>
               </div>
               <form className="addCouponCode" onSubmit={onCouponSubmit}>
                 <input 
@@ -63,10 +63,10 @@ const Cart = props => {
         <div className="row">
           <div className="col-12">
             <Link to={"checkout"} 
-              className="checkoutButton" 
-              onClick={(subtotal) => toCheckout(parseFloat(finalSubtotal()))}
+              className="checkoutBtn" 
+              onClick={cartItems.length ? (subtotal) => toCheckout(parseFloat(finalSubtotal())) : (event) => event.preventDefault()}
             >
-              <button className="backgroundBtn">
+              <button className={`${cartItems.length ? "" : "inactive"} backgroundBtn`}>
                 <FontAwesomeIcon icon="angle-double-right" />
                 Proceed to checkout
               </button>
