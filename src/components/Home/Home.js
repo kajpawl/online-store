@@ -30,7 +30,6 @@ export default class Home extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-            {console.log(products)}
               <ProductList 
                 products={products} 
                 getProduct={(id) => getProduct(id)} 

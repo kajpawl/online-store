@@ -4,8 +4,11 @@ import Checkout from '../components/Checkout/Checkout';
 import CheckoutBillingDetails from '../components/CheckoutBillingDetails/CheckoutBillingDetails';
 import CheckoutConfirm from '../components/CheckoutConfirm/CheckoutConfirm';
 // import { toCheckout } from '../actions/cart-actions';
+import { removeFromCart } from '../actions/cart-actions';
+
 
 class CheckoutContainer extends Component {
+
   renderProductlist() {
     const { checkoutData } = this.props;
     return checkoutData.cartItems ? (
@@ -13,15 +16,20 @@ class CheckoutContainer extends Component {
         {checkoutData.cartItems.map((product, index) => {
           return (
             <tr key={index}>
-              <td>{product.item.name}</td>
-              <td>$ {product.item.price.toFixed(2)}</td>
-              <td>{product.quantity}</td>
-              <td>$ {(product.quantity * product.item.price).toFixed(2)}</td>
+              <td className="checkoutItemName">{product.item.name}</td>
+              <td className="checkoutItemPrice">$ {product.item.price.toFixed(2)}</td>
+              <td className="checkoutItemQuantity">{product.quantity}</td>
+              <td className="checkoutItemTotal">$ {(product.quantity * product.item.price).toFixed(2)}</td>
             </tr>
           )
         })}
       </tbody>
     ) : ('');
+  }
+
+  clearCartItems() {
+    const { cartItems, removeFromCart } = this.props;
+    cartItems.map(product => removeFromCart(product.item.id));
   }
 
 	render() {
@@ -46,8 +54,9 @@ class CheckoutContainer extends Component {
       default:
         return (
     			<Checkout 
-    				checkoutData={checkoutData}
+            checkoutData={checkoutData}
             renderProductlist={this.renderProductlist()}
+            clearCartItems={() => this.clearCartItems()}
     			/>
     		)
     }
@@ -55,14 +64,13 @@ class CheckoutContainer extends Component {
 };
 
 const mapStateToProps = store => ({
+  cartItems: store.cartReducer.cartItems,
 	checkoutData: store.cartReducer.checkoutData,
   userData: store.cartReducer.userData
 });
 
 const mapDispatchToProps = dispatch => ({
-	// removeFromCart: id => dispatch(removeFromCart(id)),
-	// changeQuantity: (id, quantity) => dispatch(changeQuantity(id, quantity)),
-	// useCoupon: couponCode => dispatch(useCoupon(couponCode)),
+	removeFromCart: id => dispatch(removeFromCart(id)),
 	// toCheckout: () => dispatch(toCheckout())
 });
 

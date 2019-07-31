@@ -1,0 +1,95 @@
+@import "../../styles/variables";
+
+.checkout {
+
+  .checkoutData {
+
+    table {
+      min-width: 640px;
+      width: 880px;
+      font-size: 17px;
+      margin: 0 auto;
+
+      tbody {
+
+        tr:hover {
+          background-color: $background;
+        }
+      }
+
+      td,
+      th {
+        padding: 7px 12px;
+
+        &.checkoutItemName {
+          font-weight: 600;
+        }
+
+        &.checkoutItemPrice,
+        &.checkoutItemQuantity,
+        &.checkoutItemTotal {
+          text-align: center;
+        }
+      }
+
+      thead {
+        border-bottom: 2px solid $background;
+
+        th {
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+      }
+
+      tfoot {
+        border-top: 2px solid $background;
+
+        td {
+          font-weight: 600;
+
+          &:last-of-type {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .additionalData {
+      max-width: 880px;
+      margin: 0 auto;
+
+      .checkoutShipping {
+        text-align: right;
+        padding: 20px 0;
+      }
+
+      .checkoutCouponCode {
+
+        .value {
+          padding-left: 12px;
+        }
+      }
+
+      .checkoutToPay {
+        text-align: center;
+        font-size: 20px;
+        padding: 5px 0 60px;
+        letter-spacing: 2px;
+
+        span {
+          padding-left: 30px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .backgroundBtn {
+      display: inline-block;
+      margin-bottom: 46px;
+    }
+
+    .confirmBtn {
+      float: right;
+    }
+  }
+}

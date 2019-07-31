@@ -7,38 +7,7 @@ const initialState = {
   products: productsData,
   coupons: couponsData,
   discountCoupon: {},
-  cartItems: [
-{
-  item: {
-    category: "Abstract",
-    dateAdded: "2018-06-21",
-    description: "<p>This beautiful and functional board has room for two teams of large marbles. Players take turns pushing the marbles around the board, with the goal of pushing six of the opposing player's marbles off the board. The central idea is that a column of marbles has weight given by the number of marbles in line. Someone will need to push with a heavier group of marbles in order to push the column along that axis. However, with six possible directions, it's difficult to defend yourself perfectly. Also, it's possible to play the game with up to six players when supplemental marble sets are purchased.</p>",
-    id: "2",
-    imgs: "3.jpg",
-    name: "Abalone",
-    oldPrice: 34.99,
-    price: 34.99,
-    promoted: false,
-    stock: 1
-  },
-  quantity: 1
-},
-{
-  item: {
-    category: "Strategy",
-    dateAdded: "2018-06-21",
-    description: "<p>This beautiful and functional board has room for two teams of large marbles. Players take turns pushing the marbles around the board, with the goal of pushing six of the opposing player's marbles off the board. The central idea is that a column of marbles has weight given by the number of marbles in line. Someone will need to push with a heavier group of marbles in order to push the column along that axis. However, with six possible directions, it's difficult to defend yourself perfectly. Also, it's possible to play the game with up to six players when supplemental marble sets are purchased.</p>",
-    id: "3",
-    imgs: "4.jpg",
-    name: "Robert",
-    oldPrice: 34.99,
-    price: 34.99,
-    promoted: false,
-    stock: 1
-  },
-  quantity: 1
-}
-  ],
+  cartItems: [],
   checkoutData: {},
   shippingCost: shippingPrice
 };
