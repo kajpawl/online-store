@@ -27,7 +27,8 @@
     .addCouponCode {
       float: right;
 
-      input {
+      input,
+      .couponCodeSubmit {
         display: inline-block;
         height: 40px;
         padding: 0;
@@ -59,6 +60,11 @@
           line-height: 40px;
           border-radius: 0 5px 5px 0;
           border: 1px solid transparent;
+          line-height: inherit;
+
+          svg {
+            margin-right: 0;
+          }
         }
       }
     }
@@ -87,7 +93,14 @@
 
 @media (max-width: 767px) {
 
-  .cart .subtotalContainer .addCouponCode {
-    white-space: nowrap;
+  .cart .subtotalContainer {
+
+    .subtotalLine {
+      margin-bottom: 5px;
+    }
+
+    .addCouponCode {
+      white-space: nowrap;
+    }
   }
 }

@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchProducts, getCategory } from '../actions/products-actions';
 import Header from '../components/Header/Header'

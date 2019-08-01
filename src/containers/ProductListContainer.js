@@ -10,10 +10,9 @@ import './ProductListContainer.scss';
 class ProductListContainer extends Component {
   
   componentDidMount() {
-    const { getProducts, searchProducts, getCategory } = this.props;
+    const { getProducts, searchProducts } = this.props;
     getProducts();
     searchProducts('');
-    // getCategory('All');
 
     const filterButton = document.getElementById('filterButton');
     const sortingPanel = document.getElementById('sortingPanel');

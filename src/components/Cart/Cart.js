@@ -51,11 +51,12 @@ const Cart = props => {
                   placeholder="Have a Coupon Code?" 
                   ref={node => couponInput = node} 
                 />
-                <input 
+                <button 
                   type="submit" 
                   className="couponCodeSubmit backgroundBtn" 
-                  value="&#x1F87A;" 
-                />
+                >
+                  <FontAwesomeIcon icon="arrow-right" />
+                </button>
               </form>
             </div>
           </div>
