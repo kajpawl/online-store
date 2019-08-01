@@ -39,10 +39,33 @@
   }
 }
 
+@media (max-width: 991px) {
+  .sortingPanel .section {
+    width: 193px;
+  }
+}
+
 @media (max-width: 767px) {
 
-  .sortingPanel .wrapper {
-    position: static;
-    margin: auto;
+  .sortingPanel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .section {
+      width: 100%;
+
+      &.sortingButtons {
+        padding-top: 0;
+      }
+    }
+
+    .wrapper {
+      position: static;
+      margin: auto;
+      margin-bottom: 20px;
+    }
   }
 }

@@ -1,0 +1,24 @@
+//    CSS BASED ANIMATION FOR CHANGING PAGES
+
+body {
+
+  main,
+  aside {
+    opacity: 0;
+    animation: handle-opacity (2 * $transition-quick) forwards;
+  }
+
+  .productListItem {
+    opacity: 0;
+    animation: handle-opacity (1 * $transition-quick) forwards;    
+  }
+}
+
+@keyframes handle-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

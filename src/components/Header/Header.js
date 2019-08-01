@@ -1,15 +1,48 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Header.scss';
 
 class Header extends Component  {
+
+  componentDidMount() {
+    const menuToggleButton = document.getElementById('menuButton');
+    const navMenu = document.getElementById('nav');
+    const navItems = document.querySelectorAll('#nav nav a');
+
+    menuToggleButton.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggleButton.classList.toggle('active');
+    });
+
+    navItems.forEach(item => item.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      menuToggleButton.classList.remove('active');
+    }));
+  }
+
   render () {
-    const { searchProducts, cartItems, searchText, getCategory } = this.props;
+    const { searchProducts, cartItems, searchText, getCategory, location } = this.props;
     return (
       <header>
-        <div className="fixedWrapper">
+        <div className="mobileMenuIcons">
+          <button id="filterButton">
+            <FontAwesomeIcon icon="sort" className="filterIcon" />
+          </button>
+          <button id="menuButton">
+            &#9776;
+          </button>
+          <NavLink to="/cart" activeClassName="active">
+            <div id="mobileCartIcon">
+              <FontAwesomeIcon icon="shopping-cart" className="cartIcon" />
+              {!cartItems || cartItems.length === 0 ? "" : 
+              <div className="itemsInCart">
+                {cartItems.length}
+              </div>}
+            </div>
+          </NavLink>
+        </div>
+        <div className="fixedWrapper" id="nav">
           <nav className="container">
             <NavLink exact to="/" className="shopLogoContainer" activeClassName="active">
               <img className="shopLogo" src={require("../../images/logo.png")} alt="BoardCraze logo" />

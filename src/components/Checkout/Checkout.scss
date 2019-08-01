@@ -93,3 +93,33 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+
+  .checkout .checkoutData .checkoutProductList {
+    overflow: auto;
+
+    table {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .checkout .checkoutData {
+
+    .backgroundBtn {
+      display: block;
+      margin: 0 auto 5px;
+      width: 247px;
+      height: 42px;
+    }
+
+    .confirmBtn {
+      display: block;
+      float: none;
+      margin-bottom: 43px;
+    }
+  }
+}

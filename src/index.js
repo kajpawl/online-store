@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
 
-import DevTools from './DevTools';
+// import DevTools from './DevTools';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +11,7 @@ import './index.css';
 import './App.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight, faSort } from '@fortawesome/free-solid-svg-icons'
 
 import MainLayout from './components/MainLayout/MainLayout';
 import ProductListContainer from './containers/ProductListContainer';
@@ -26,7 +26,7 @@ import Terms from './components/Terms/Terms';
 import NoMatch from './components/NoMatch/NoMatch';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
-library.add(faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight);
+library.add(faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight, faSort);
 
 class App extends React.Component {
 	render() {
@@ -52,8 +52,8 @@ class App extends React.Component {
 							</MainLayout>
 						</ScrollToTop>
 					</BrowserRouter>
-					<DevTools />
-				</div>
+{/*					<DevTools />
+*/}				</div>
 			</Provider>
 		)
 	}

@@ -29,7 +29,7 @@ export default class Home extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 productListWrapper">
               <ProductList 
                 products={products} 
                 getProduct={(id) => getProduct(id)} 

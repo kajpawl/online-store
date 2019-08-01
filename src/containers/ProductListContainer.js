@@ -8,11 +8,25 @@ import { addToCart } from '../actions/cart-actions';
 import './ProductListContainer.scss';
 
 class ProductListContainer extends Component {
+  
   componentDidMount() {
     const { getProducts, searchProducts, getCategory } = this.props;
     getProducts();
     searchProducts('');
     // getCategory('All');
+
+    const filterButton = document.getElementById('filterButton');
+    const sortingPanel = document.getElementById('sortingPanel');
+    filterButton.classList.add('visible');
+    filterButton.addEventListener('click', () => {
+      filterButton.classList.toggle('active');
+      sortingPanel.classList.toggle('active');
+    });
+  }
+
+  componentWillUnmount() {
+    const filterButton = document.getElementById('filterButton');
+    filterButton.classList.remove('visible');
   }
 
   getProductsForPage() {

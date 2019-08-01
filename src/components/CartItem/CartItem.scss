@@ -165,3 +165,51 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+
+  .cartItem .cartItemContainer .removeCell button {
+    top: 11px;
+    right: 0;  
+  }
+}
+
+@media (max-width: 767px) {
+
+  .cartItem {
+    height: auto;
+    line-height: 1.3em;
+
+    .cell {
+      
+      a h3 {
+        white-space: normal;
+        margin-top: 15px;
+        display: block;
+      }
+
+      &.thumbnailCell,
+      &.priceCell {
+        text-align: center;
+      }
+
+      &.thumbnailCell {
+        margin: 5px 0 3px;
+
+        img {
+          max-width: calc(50vw - 30px);
+        }
+      }
+
+      &.priceCell .pricesWrapper {
+        line-height: 1.5em;
+        padding-bottom: 10px;
+      }
+    }
+
+    .cartItemContainer .removeCell button {
+      right: 5px;
+      top: 2px;
+    }
+  }
+}

@@ -84,3 +84,10 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+
+  .cart .subtotalContainer .addCouponCode {
+    white-space: nowrap;
+  }
+}

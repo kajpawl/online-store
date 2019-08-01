@@ -8,7 +8,7 @@ import { removeFromCart } from '../actions/cart-actions';
 
 
 class CheckoutContainer extends Component {
-
+  
   renderProductlist() {
     const { checkoutData } = this.props;
     return checkoutData.cartItems ? (

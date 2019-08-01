@@ -46,3 +46,40 @@ footer {
     }
   }
 }
+
+@media (max-width: 767px) {
+
+  footer {
+      text-align: center;
+      padding-bottom: 12px;
+      height: auto;
+      white-space: normal;
+      margin-top: 20px;
+
+    a {
+      display: inline-block;
+      float: none;
+      margin: 0 auto;
+      line-height: 36px;
+      height: 26px;
+      font-size: 12px;
+      opacity: .8;
+
+      &:last-of-type {
+        line-height: 16px;
+      }
+    }
+
+    .nav-links {
+      width: 100%;
+      padding-bottom: 12px;
+
+      a {
+        display: inline-block;
+        height: auto;
+        font-weight: 600;
+        opacity: 1;
+      }
+    }
+  }
+}

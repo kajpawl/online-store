@@ -12,25 +12,28 @@
     }
   }
 
-  .checkoutData table {
-    margin-bottom: 56px;
+  .checkoutData {
 
-    tfoot {
-      border-bottom: 2px solid $secondary;
+    table {
+      margin-bottom: 15px;
 
-      tr td {
+      tfoot {
+        border-bottom: 2px solid $secondary;
 
-        i,
-        .value {
-          font-size: 18px;
-          font-weight: 700;
-          font-style: normal;
+        tr td {
+
+          i,
+          .value {
+            font-size: 18px;
+            font-weight: 700;
+            font-style: normal;
+          }
         }
       }
     }
-  }
 
-  .checkoutCouponCode {
-    margin-bottom: 30px;
+    .backgroundBtn {
+      margin-top: 56px;
+    }
   }
 }

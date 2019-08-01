@@ -93,9 +93,22 @@
   }
 }
 
+@media (max-width: 991px) {
+
+  .productListItem {
+
+    .thumbnail {
+      max-height: 222px;
+    }
+  }
+}
+
 @media (max-width: 767px) {
 
-  .col-12 {
-    margin: auto;
+  .productListItem {
+
+    .thumbnail {
+      max-height: calc(100vw - 30px);
+    }
   }
 }

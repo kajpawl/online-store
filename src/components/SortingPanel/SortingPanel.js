@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SortingPanel.scss';
 
 const SortingPanel = props => (
-  <aside className="sortingPanel">
+  <aside className="sortingPanel" id="sortingPanel">
     <div className="col-12">
       <div className="wrapper">
         <div className="section sortingButtons">

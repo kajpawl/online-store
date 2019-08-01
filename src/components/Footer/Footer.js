@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Header from '../Header/Header';
+import { NavLink } from 'react-router-dom';
 import './Footer.scss';
 
 const Footer = props => {

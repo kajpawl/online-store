@@ -91,3 +91,25 @@
     }
   }
 }
+
+
+@media (max-width: 767px) {
+
+  .productPage .descriptionContainer {
+
+    .basicInfo {
+      padding-bottom: 15px;      
+    }
+
+    .backgroundBtn {
+      min-width: 130px;
+      width: 100%;
+      line-height: 1.2em;
+      min-height: 40px;
+    }
+
+    .backToShopping .backgroundBtn {
+      margin-bottom: 46px;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { addToCart } from '../actions/cart-actions';
 import './ProductListContainer.scss';
 
 class HomeContainer extends Component {
+  
   componentDidMount() {
     const { getProducts, searchProducts } = this.props;
     getProducts();
