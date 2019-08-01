@@ -10,7 +10,7 @@ body {
 
   .productListItem {
     opacity: 0;
-    animation: handle-opacity (1 * $transition-quick) forwards;    
+    animation: handle-opacity (1 * $transition) forwards;    
   }
 }
 

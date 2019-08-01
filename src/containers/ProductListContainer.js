@@ -21,12 +21,14 @@ class ProductListContainer extends Component {
     filterButton.addEventListener('click', () => {
       filterButton.classList.toggle('active');
       sortingPanel.classList.toggle('active');
+      if (sortingPanel.classList.contains('active')) this.pageScrollUp();
     });
   }
 
   componentWillUnmount() {
-    const filterButton = document.getElementById('filterButton');
-    filterButton.classList.remove('visible');
+    const filterButtonClass = document.getElementById('filterButton').classList;
+    filterButtonClass.remove('visible');
+    if (filterButtonClass.contains('active')) filterButtonClass.remove('active');
   }
 
   getProductsForPage() {
