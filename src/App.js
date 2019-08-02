@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store/index';
 // import DevTools from './DevTools';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
@@ -31,7 +32,15 @@ class App extends React.Component {
           <BrowserRouter>
             <ScrollToTop>
               <MainLayout>
-                <Switch>
+          <Route
+            render={({ location }) => (
+            <TransitionGroup>
+              <CSSTransition
+                key={location}
+                classNames="pageFade"
+                timeout={300}
+              >
+                <Switch location={location} key={location}>
                   <Route exact path={'/'} component={HomeContainer} />      
                   <Route exact path={'/products'} component={ProductListContainer} />
                   <Route exact path={'/products/:id'} component={ProductContainer} />
@@ -44,6 +53,9 @@ class App extends React.Component {
                   <Route exact path={'/terms'} component={Terms} />
                   <Route component={NoMatch} />
                 </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )}/>
               </MainLayout>
             </ScrollToTop>
           </BrowserRouter>

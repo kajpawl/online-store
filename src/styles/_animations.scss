@@ -2,16 +2,16 @@
 
 body {
 
-  main,
-  aside {
-    opacity: 0;
-    animation: handle-opacity (2 * $transition-quick) forwards;
-  }
+  // main,
+  // aside {
+  //   opacity: 0;
+  //   animation: handle-opacity (2 * $transition-quick) forwards;
+  // }
 
-  .productListItem {
-    opacity: 0;
-    animation: handle-opacity (1 * $transition) forwards;    
-  }
+  // .productListItem {
+  //   opacity: 0;
+  //   animation: handle-opacity (1 * $transition) forwards;    
+  // }
 }
 
 @keyframes handle-opacity {
@@ -21,4 +21,24 @@ body {
   to {
     opacity: 1;
   }
+}
+
+.pageFade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.pageFade-enter.pageFade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.pageFade-exit {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.pageFade-exit.pageFade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
 }
