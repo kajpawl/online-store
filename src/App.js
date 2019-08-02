@@ -32,30 +32,32 @@ class App extends React.Component {
           <BrowserRouter>
             <ScrollToTop>
               <MainLayout>
-          <Route
-            render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition
-                key={location}
-                classNames="pageFade"
-                timeout={300}
-              >
-                <Switch location={location} key={location}>
-                  <Route exact path={'/'} component={HomeContainer} />      
-                  <Route exact path={'/products'} component={ProductListContainer} />
-                  <Route exact path={'/products/:id'} component={ProductContainer} />
-                  <Route exact path={'/cart'} component={CartContainer} />
-                  <Route exact path={'/checkout'} component={CheckoutContainer} />
-                  <Route exact path={'/checkout/billing'} component={CheckoutContainer} />
-                  <Route exact path={'/checkout/confirm'} component={CheckoutContainer} />
-                  <Route exact path={'/faq'} component={Faq} />
-                  <Route exact path={'/contact'} component={Contact} />
-                  <Route exact path={'/terms'} component={Terms} />
-                  <Route component={NoMatch} />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )}/>
+                <Route
+                  render={({ location }) => (
+                  <div className="fadeWrapper">
+                    <TransitionGroup>
+                      <CSSTransition
+                        key={location.key}
+                        classNames="pageFade"
+                        timeout={200}
+                      >
+                        <Switch location={location}>
+                          <Route exact path={'/'} component={HomeContainer} />      
+                          <Route exact path={'/products'} component={ProductListContainer} />
+                          <Route exact path={'/products/:id'} component={ProductContainer} />
+                          <Route exact path={'/cart'} component={CartContainer} />
+                          <Route exact path={'/checkout'} component={CheckoutContainer} />
+                          <Route exact path={'/checkout/billing'} component={CheckoutContainer} />
+                          <Route exact path={'/checkout/confirm'} component={CheckoutContainer} />
+                          <Route exact path={'/faq'} component={Faq} />
+                          <Route exact path={'/contact'} component={Contact} />
+                          <Route exact path={'/terms'} component={Terms} />
+                          <Route component={NoMatch} />
+                        </Switch>
+                      </CSSTransition>
+                    </TransitionGroup>
+                  </div>
+                )}/>
               </MainLayout>
             </ScrollToTop>
           </BrowserRouter>

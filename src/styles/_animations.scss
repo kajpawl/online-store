@@ -23,6 +23,10 @@ body {
   }
 }
 
+.fadeWrapper {
+  position: relative;
+}
+
 .pageFade-enter {
   opacity: 0;
   z-index: 1;
@@ -30,15 +34,20 @@ body {
 
 .pageFade-enter.pageFade-enter-active {
   opacity: 1;
-  transition: opacity 250ms ease-in;
+  transition: opacity $transition-quick ease-in;
 }
 
 .pageFade-exit {
-  opacity: 0;
-  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
 .pageFade-exit.pageFade-exit-active {
   opacity: 0;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity $transition-quick ease-out;
 }
