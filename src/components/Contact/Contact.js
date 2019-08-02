@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Contact.scss';
 
 const Contact = props => {
@@ -32,7 +33,13 @@ const Contact = props => {
               <div className="col-12 inputItem">
                 <textarea name="message" placeholder="Message"></textarea>
               </div>
-              <input type="submit" value="&#9993; Send message" className="backgroundBtn" />
+              <button 
+                type="submit" 
+                className="submitMessageInput backgroundBtn" 
+              >
+                <FontAwesomeIcon icon="envelope" />
+                Send message
+              </button>
             </div>
           </form>
         </div>

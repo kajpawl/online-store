@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight, faSort } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faEnvelope, faArrowLeft, faArrowRight, faSort } from '@fortawesome/free-solid-svg-icons'
 
 import MainLayout from './components/MainLayout/MainLayout';
 import ProductListContainer from './containers/ProductListContainer';
@@ -21,7 +21,7 @@ import Terms from './components/Terms/Terms';
 import NoMatch from './components/NoMatch/NoMatch';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
-library.add(faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faArrowLeft, faArrowRight, faSort);
+library.add(faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faEnvelope, faArrowLeft, faArrowRight, faSort);
 
 class App extends React.Component {
   render() {

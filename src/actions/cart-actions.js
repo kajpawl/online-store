@@ -4,6 +4,7 @@ export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
 export const USE_COUPON = 'USE_COUPON';
 export const TO_CHECKOUT = 'TO_CHECKOUT';
 export const CONFIRM_ORDER = 'CONFIRM_ORDER';
+export const ON_CHECKOUT = 'ON_CHECKOUT;'
 
 // add product to cart
 export function addToCart(id) {
@@ -43,5 +44,11 @@ export function toCheckout(subtotal) {
   return {
     type: TO_CHECKOUT,
     subtotal
+  }
+}
+
+export function onCheckout() {
+  return {
+    type: ON_CHECKOUT
   }
 }

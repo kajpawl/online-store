@@ -4,7 +4,7 @@ import Checkout from '../components/Checkout/Checkout';
 import CheckoutBillingDetails from '../components/CheckoutBillingDetails/CheckoutBillingDetails';
 import CheckoutConfirm from '../components/CheckoutConfirm/CheckoutConfirm';
 // import { toCheckout } from '../actions/cart-actions';
-import { removeFromCart } from '../actions/cart-actions';
+import { onCheckout } from '../actions/cart-actions';
 
 
 class CheckoutContainer extends Component {
@@ -27,13 +27,8 @@ class CheckoutContainer extends Component {
     ) : ('');
   }
 
-  clearCartItems() {
-    const { cartItems, removeFromCart } = this.props;
-    cartItems.map(product => removeFromCart(product.item.id));
-  }
-
 	render() {
-		const { checkoutData, userData, location } = this.props;
+		const { checkoutData, userData, onCheckout, location } = this.props;
     switch (location.pathname) {
 		  case "/checkout/billing":
         return (
@@ -56,7 +51,7 @@ class CheckoutContainer extends Component {
     			<Checkout 
             checkoutData={checkoutData}
             renderProductlist={this.renderProductlist()}
-            clearCartItems={() => this.clearCartItems()}
+            onCheckout={() => onCheckout()}
     			/>
     		)
     }
@@ -70,7 +65,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	removeFromCart: id => dispatch(removeFromCart(id)),
+	onCheckout: () => dispatch(onCheckout()),
 	// toCheckout: () => dispatch(toCheckout())
 });
 

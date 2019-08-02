@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Checkout.scss';
 
 const Checkout = props => {
-  const { checkoutData, renderProductlist, clearCartItems } = props;
+  const { checkoutData, renderProductlist, onCheckout } = props;
   return (
     <main className="checkout container">
       {checkoutData.cartItems ? 
@@ -64,7 +64,7 @@ const Checkout = props => {
                   </button>
                 </Link>
                 {/*<Link to={"checkout/billing"} className="billingDetailsBtn">*/}
-                <Link to={"/checkout/confirm"} className="confirmBtn" onClick={() => clearCartItems()}>
+                <Link to={"/checkout/confirm"} className="confirmBtn" onClick={() => onCheckout()}>
                   <button className="backgroundBtn">
                     <FontAwesomeIcon icon="angle-double-right" />
                     Confirm order

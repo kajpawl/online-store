@@ -1,8 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QUANTITY, USE_COUPON, TO_CHECKOUT } from '../actions/cart-actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_QUANTITY, USE_COUPON, TO_CHECKOUT, ON_CHECKOUT } from '../actions/cart-actions';
 import productsData from '../data/products.json';
 import couponsData from '../data/coupons.json';
 
-const shippingPrice = 9;
+const shippingPrice = 8;
 const initialState = {
   products: productsData,
   coupons: couponsData,
@@ -61,15 +61,15 @@ const cartReducer = function(state = initialState, action) {
 
     case TO_CHECKOUT:
       const checkoutData = {
-        shippingPrice: state.discountCoupon.type === 'shipping' || action.subtotal > 250 ? 0 : state.shippingCost,
+        shippingPrice: state.discountCoupon.type === 'shipping' || action.subtotal > 100 ? 0 : state.shippingCost,
         cartItems: state.cartItems,
         discountCoupon: state.discountCoupon,
         subtotal: action.subtotal
       }
       return Object.assign({}, state, {checkoutData});
 
-
-
+    case ON_CHECKOUT:
+      return Object.assign({}, state, {discountCoupon: {}, cartItems: [], shippingCost: shippingPrice});
 
     default:
       return state;
