@@ -50,6 +50,7 @@ const Cart = props => {
                   type="text" 
                   placeholder="Have a Coupon Code?" 
                   ref={node => couponInput = node} 
+                  style={discountCoupon.code ? {border: "2px solid #27ae60", borderRight: "none"} : {}}
                 />
                 <button 
                   type="submit" 
