@@ -9,6 +9,7 @@
     height: 45vh;
     min-height: 400px;
     position: relative;
+    border-radius: 0;
 
     .jumbotronContent {
       position: absolute;
@@ -25,7 +26,6 @@
           color: $promoted-item;
         }
       }
-
 
       .backgroundBtn {
         margin-top: 30px;
@@ -64,6 +64,33 @@
   .productList {
     max-width: 880px;
     margin: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .home {
+
+    .productList {
+      min-height: fit-content;
+      max-width: 1140px;
+    }
+
+    .productListItemWrapper {
+      flex: 0 0 33.333333%;
+      max-width: 33.333333%;
+
+      .thumbnail {
+        max-height: 340px;
+
+        img {
+          height: auto;
+          width: 100%;
+          object-fit: cover;
+          object-position: center 25%;
+        }
+      }
+    } 
   }
 }
 

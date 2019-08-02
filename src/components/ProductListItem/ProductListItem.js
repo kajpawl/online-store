@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ProductListItem.scss';
 
 const ProductListItem = props => (
-	<div className="col-12 col-md-6">
+	<div className="col-12 col-md-6 productListItemWrapper">
 		<div className="productListItem">
 			<Link className="miniature" to={"products/" + props.product.id}>
 				<div className="thumbnail">
