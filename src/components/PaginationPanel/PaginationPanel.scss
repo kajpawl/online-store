@@ -34,3 +34,9 @@
     }
   }
 }
+
+@media (max-width: 359px) {
+  .paginationPanel ul li {
+    padding: 4px 13px;
+  }
+}
