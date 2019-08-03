@@ -61,7 +61,7 @@ const cartReducer = function(state = initialState, action) {
 
     case TO_CHECKOUT:
       const checkoutData = {
-        shippingPrice: state.discountCoupon.type === 'shipping' || action.subtotal > 100 ? 0 : state.shippingCost,
+        shippingPrice: state.discountCoupon.type === 'shipping' || action.subtotal > 120 ? 0 : state.shippingCost,
         cartItems: state.cartItems,
         discountCoupon: state.discountCoupon,
         subtotal: action.subtotal
