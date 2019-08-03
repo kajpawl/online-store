@@ -1,6 +1,16 @@
+.productList {
+  margin: 0 -15px;
+
+  .fixRowPadding {
+    margin: 0;
+  }
+}
+
 @media (max-width: 767px) {
 
   .productList {
     margin: auto;
+    position: relative;
+    width: 100%;
   }
 }

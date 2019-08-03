@@ -1,6 +1,6 @@
-//    CSS BASED ANIMATION FOR CHANGING PAGES
+//    SIMPLE CSS BASED ANIMATION FOR CHANGING PAGES
 
-body {
+// body {
 
   // main,
   // aside {
@@ -12,32 +12,42 @@ body {
   //   opacity: 0;
   //   animation: handle-opacity (1 * $transition) forwards;    
   // }
-}
+// }
 
-@keyframes handle-opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+// @keyframes handle-opacity {
+//   from {
+//     opacity: 0;
+//   }
+//   to {
+//     opacity: 1;
+//   }
+// }
+
+
+//    ANIMATIONS FOR REACT TRANSITION GROUP
+//  container wrappers to keep proper margins
 
 .fadeWrapper {
   position: relative;
 }
 
-.pageFade-enter {
+.productListItemWrapper .fade-exit.fade-exit-active {
+  margin: -15px 0;
+}
+
+//   animation itself
+
+.fade-enter {
   opacity: 0;
   z-index: 1;
 }
 
-.pageFade-enter.pageFade-enter-active {
+.fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity $transition-quick ease-in;
 }
 
-.pageFade-exit {
+.fade-exit {
   opacity: 1;
   position: absolute;
   top: 0;
@@ -47,7 +57,7 @@ body {
   z-index: 0;
 }
 
-.pageFade-exit.pageFade-exit-active {
+.fade-exit.fade-exit-active {
   opacity: 0;
   transition: opacity $transition-quick ease-out;
 }

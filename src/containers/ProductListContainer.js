@@ -8,6 +8,14 @@ import { addToCart } from '../actions/cart-actions';
 import './ProductListContainer.scss';
 
 class ProductListContainer extends Component {
+
+//  constructor is used ONLY to tell React Transition Group when to update
+  constructor() {
+    super();
+    this.state = {
+      updateProductList: 1
+    };
+  }
   
   componentDidMount() {
     const { getProducts, searchProducts } = this.props;
@@ -47,6 +55,9 @@ class ProductListContainer extends Component {
       top: 0,
       behavior: 'smooth'
     });
+    this.setState({
+      updateProductList: Math.random()
+    });
   }
 
   renderPaginationButtons() {
@@ -75,6 +86,7 @@ class ProductListContainer extends Component {
               getProduct={(id) => getProduct(id)} 
               addToCart={(id) => addToCart(id)} 
               cartItems={cartItems}
+              updateProducts={this.state.updateProductList}
             />
           </div>
           <PaginationPanel 

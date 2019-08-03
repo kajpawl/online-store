@@ -38,7 +38,7 @@ class App extends React.Component {
                     <TransitionGroup>
                       <CSSTransition
                         key={location.key}
-                        classNames="pageFade"
+                        classNames="fade"
                         timeout={200}
                       >
                         <Switch location={location}>

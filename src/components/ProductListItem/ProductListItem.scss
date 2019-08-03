@@ -39,27 +39,6 @@
 
     > a {
 
-      // h3 span {
-      //   position: relative;
-      // }
-
-      // h3 span:before {
-      //   position: absolute;
-      //   bottom: 0;
-      //   left: 0;
-      //   right: 0;
-      //   content: '';
-      //   width: 0px;
-      //   height: 2px;
-      //   background: $text;
-      //   transition: $transition-quick;
-      //   transition-origin: center;
-      //   opacity: .4;
-      // }
-
-      // &:hover h3 span:before {
-      //   width: 100%;
-      // }
       h3 {
         transition: $transition-quick;
       }

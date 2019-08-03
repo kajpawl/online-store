@@ -17,23 +17,3 @@ $transition-slow: .6s;
 
 $box-shadow-faint: 0 3px 12px -7px rgba(0, 0, 0, 0.3);
 $box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
-
-
-
-
-
-
-
-
-
-// Hover state animation - set value in milliseconds
-
-//for buttons background
-%background-animation-time {
-  transition-duration: 250ms !important;
-}
-
-//for texts and icons
-%text-animation-time {
-  transition-duration: 250ms !important;
-}
