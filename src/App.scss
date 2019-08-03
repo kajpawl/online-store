@@ -115,3 +115,12 @@ body {
     background-color: $last-item; 
   }
 }
+
+// fix rendering of number of items in cart on mobile phones
+
+@media (max-width: 575px) {
+  header .nav-links .cartIconWrapper div.itemsInCart,
+  header .mobileMenuIcons #mobileCartIcon div.itemsInCart {
+    padding-top: 1px;
+  }
+}

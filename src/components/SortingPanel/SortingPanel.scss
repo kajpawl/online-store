@@ -39,9 +39,41 @@
   }
 }
 
-@media (max-width: 991px) {
-  .sortingPanel .section {
-    width: 193px;
+@media (min-width: 768px) {
+
+  .sortingPanel {
+
+    .wrapper{
+      overflow-y: auto;
+      max-height: calc(100vh - 120px);
+      background: $primary;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #ddd;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sortingPanel {
+
+    .section {
+      width: 193px;
+    }
+
+    .wrapper::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
   }
 }
 

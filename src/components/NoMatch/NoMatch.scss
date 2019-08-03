@@ -2,20 +2,20 @@
 
   .pageWrapper {
     padding-top: calc(50vh - 402px);
-    // transform: translateY(-282px);
+    max-width: 750px;
+    margin: 0 auto;
   }
 
   h2 {
     text-transform: none;
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 42px;
     letter-spacing: normal;
     font-size: 56px;
   }
 
   b,
   span {
-    line-height: 80px;
     vertical-align: middle;
   }
 
@@ -38,6 +38,20 @@
 
       &.textLogo {
         margin-top: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .noMatch {
+
+    .sadnessWrapper {
+      padding-bottom: 50px;
+
+      .meepleLogo {
+        max-width: 66.7%;
       }
     }
   }
