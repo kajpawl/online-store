@@ -22,7 +22,7 @@ class Header extends Component  {
   }
 
   render () {
-    const { searchProducts, cartItems, searchText, getCategory, location } = this.props;
+    const { searchProducts, cartItems, searchText, getCategory } = this.props;
     return (
       <header>
         <div className="mobileMenuIcons">

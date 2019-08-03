@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store/index';
-// import DevTools from './DevTools';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,8 +60,7 @@ class App extends React.Component {
               </MainLayout>
             </ScrollToTop>
           </BrowserRouter>
-{/*         <DevTools />
-*/}       </div>
+        </div>
       </Provider>
     )
   }
