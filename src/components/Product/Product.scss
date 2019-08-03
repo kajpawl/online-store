@@ -8,6 +8,7 @@
     position: relative;
 
     img {
+      object-fit: contain;
       width: 100%;
     }
   }
@@ -92,7 +93,6 @@
   }
 }
 
-
 @media (max-width: 767px) {
 
   .productPage .descriptionContainer {
@@ -108,8 +108,24 @@
       min-height: 40px;
     }
 
-    .backToShopping .backgroundBtn {
-      margin-bottom: 46px;
+    .backToShopping {
+      
+      .backgroundBtn {
+        margin-bottom: 46px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .productPage {
+
+    .productImage {
+
+      img {
+        max-height: calc(100vh - 215px);
+      }
     }
   }
 }
