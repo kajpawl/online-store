@@ -6,33 +6,38 @@ import { getProduct } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
 
 class ProductContainer extends Component {
-	
-	componentDidMount() {
-		this.props.getProduct(this.props.match.params.id);
-		window.scrollTo(0, 0);
-	};
+  
+  componentDidMount() {
+    const { getProduct, match } = this.props;
+    getProduct(match.params.id);
+  }
 
-	render() {
-		const {selectedProduct, addToCart, cartItems, match} = this.props;
-		if (selectedProduct) {
-			return (
-				<Product cartItems={cartItems} product={selectedProduct} matchId={match.params.id} addToCart={(id) => addToCart(id)} />
-			)
-		}
-		else {
-			return <NoMatch />
-		}
-	}
+  render() {
+    const { selectedProduct, addToCart, cartItems, match } = this.props;
+    if (selectedProduct) {
+      return (
+        <Product 
+          cartItems={cartItems} 
+          product={selectedProduct} 
+          matchId={match.params.id} 
+          addToCart={(id) => addToCart(id)} 
+        />
+      );
+    }
+    else {
+      return <NoMatch />
+    }
+  };
 };
 
 const mapStateToProps = store => ({
-	selectedProduct: store.productsReducer.selectedProduct,
-	cartItems: store.cartReducer.cartItems
+  selectedProduct: store.productsReducer.selectedProduct,
+  cartItems: store.cartReducer.cartItems
 });
 
 const mapDispatchToProps = dispatch => ({
-	getProduct: (id) => dispatch(getProduct(id)),
-	addToCart: (id) => dispatch(addToCart(id))
+  getProduct: (id) => dispatch(getProduct(id)),
+  addToCart: (id) => dispatch(addToCart(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductContainer);

@@ -4,17 +4,16 @@ import store from './store/index';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faEnvelope, faArrowLeft, faArrowRight, faSort } from '@fortawesome/free-solid-svg-icons';
 import './App.scss';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faAngleDoubleLeft, faAngleDoubleRight, faShoppingCart, faCartArrowDown, faCheckCircle, faSearch, faEnvelope, faArrowLeft, faArrowRight, faSort } from '@fortawesome/free-solid-svg-icons'
-
 import MainLayout from './components/MainLayout/MainLayout';
+import HomeContainer from './containers/HomeContainer';
 import ProductListContainer from './containers/ProductListContainer';
 import ProductContainer from './containers/ProductContainer';
 import CartContainer from './containers/CartContainer';
 import CheckoutContainer from './containers/CheckoutContainer';
-import HomeContainer from './containers/HomeContainer';
 import Faq from './components/Faq/Faq';
 import Contact from './components/Contact/Contact';
 import Terms from './components/Terms/Terms';
@@ -62,8 +61,8 @@ class App extends React.Component {
           </BrowserRouter>
         </div>
       </Provider>
-    )
-  }
-}
+    );
+  };
+};
 
 export default App;

@@ -12,5 +12,5 @@ export default class MainLayout extends Component {
         <Footer />
       </div>
     );
-  }
-}
+  };
+};

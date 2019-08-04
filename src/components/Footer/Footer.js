@@ -27,7 +27,7 @@ const Footer = props => {
       </div>
       <a href="https://github.com/kajpawl">© Kajetan Pawliszyn 2019</a>
     </footer>
-  )
+  );
 };
 
 export default Footer; 

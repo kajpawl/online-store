@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from '../components/Home/Home';
-import { getProducts, sortProducts, searchProducts, getProduct, getCategory } from '../actions/products-actions';
+import { getProducts, searchProducts, getProduct, getCategory } from '../actions/products-actions';
 import { addToCart } from '../actions/cart-actions';
 import './ProductListContainer.scss';
 
@@ -19,7 +19,7 @@ class HomeContainer extends Component {
   }
 
   render() {
-    const { searchProducts, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems, getCategory } = this.props;
+    const { getProduct, addToCart, cartItems, getCategory } = this.props;
     return (
       <Home 
         products={this.getProductsForPage()} 

@@ -7,11 +7,13 @@ import './ProductListItem.scss';
 
 class ProductListItem extends Component {
 
+  //  Constructor is used ONLY to check if the image has loaded
   constructor() {
     super();
     this.state = {isLoading: true};
   }
 
+  //  Check if the image has loaded
   checkLoad() {
     return this.state.isLoading ? <Spinner /> : <div />;
   }
@@ -70,7 +72,7 @@ class ProductListItem extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default ProductListItem;

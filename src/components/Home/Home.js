@@ -7,7 +7,7 @@ import './Home.scss';
 
 export default class Home extends Component {
   render() {
-    const { products, searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
+    const { products, getCategory, getProduct, addToCart, cartItems } = this.props;
     return (
       <main className="home">
         <Jumbotron>
@@ -49,6 +49,6 @@ export default class Home extends Component {
           </div>
         </div>
       </main>
-    )
-  }
-}
+    );
+  };
+};

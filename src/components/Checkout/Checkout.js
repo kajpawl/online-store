@@ -63,7 +63,6 @@ const Checkout = props => {
                     Back to cart
                   </button>
                 </Link>
-                {/*<Link to={"checkout/billing"} className="billingDetailsBtn">*/}
                 <Link to={"/checkout/confirm"} className="confirmBtn" onClick={() => onCheckout()}>
                   <button className="backgroundBtn">
                     <FontAwesomeIcon icon="angle-double-right" />

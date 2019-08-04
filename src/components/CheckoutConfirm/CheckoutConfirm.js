@@ -5,7 +5,7 @@ import '../Checkout/Checkout.scss';
 import './CheckoutConfirm.scss';
 
 const CheckoutConfirm = props => {
-  const { checkoutData, userData, renderProductlist } = props;
+  const { checkoutData, renderProductlist } = props;
   return (
     <main className="checkout checkoutConfirm container">
       {checkoutData.cartItems ? 
@@ -19,13 +19,6 @@ const CheckoutConfirm = props => {
             <div className="col-12 paragraphContainer">
               <p>Thank you for your order! It's already on the way and should reach you soon. You can see the details of your order below.</p>
               <p>We are proud you trusted us and hope to see you back in the near future!</p>
-            {/*  <div className="userData">
-                <h3>userData.name userData.surname</h3>
-                <h4>Address</h4>
-                <p>userData.address</p>
-                <p>userData.zipCode userData.city</p>
-                <p>userData.country</p>
-              </div> */}
             </div>
           </div>
           <div className="row">
@@ -82,7 +75,7 @@ const CheckoutConfirm = props => {
         <div className="emptyOrder">Your order is empty</div>
       }
     </main>
-  )
+  );
 };
 
 export default CheckoutConfirm;

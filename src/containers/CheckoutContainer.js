@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Checkout from '../components/Checkout/Checkout';
-import CheckoutBillingDetails from '../components/CheckoutBillingDetails/CheckoutBillingDetails';
 import CheckoutConfirm from '../components/CheckoutConfirm/CheckoutConfirm';
-// import { toCheckout } from '../actions/cart-actions';
 import { onCheckout } from '../actions/cart-actions';
-
 
 class CheckoutContainer extends Component {
   
@@ -27,46 +24,36 @@ class CheckoutContainer extends Component {
     ) : ('');
   }
 
-	render() {
-		const { checkoutData, userData, onCheckout, location } = this.props;
+  render() {
+    const { checkoutData, onCheckout, location } = this.props;
     switch (location.pathname) {
-		  case "/checkout/billing":
-        return (
-          <CheckoutBillingDetails 
-            userData={userData}
-          />
-        )
-
       case "/checkout/confirm":
         return (
           <CheckoutConfirm 
             checkoutData={checkoutData}
-            userData={userData}
             renderProductlist={this.renderProductlist()}
           />
         )
 
       default:
         return (
-    			<Checkout 
+          <Checkout 
             checkoutData={checkoutData}
             renderProductlist={this.renderProductlist()}
             onCheckout={() => onCheckout()}
-    			/>
-    		)
-    }
-	}
+          />
+        )
+    };
+  };
 };
 
 const mapStateToProps = store => ({
   cartItems: store.cartReducer.cartItems,
-	checkoutData: store.cartReducer.checkoutData,
-  userData: store.cartReducer.userData
+  checkoutData: store.cartReducer.checkoutData,
 });
 
 const mapDispatchToProps = dispatch => ({
-	onCheckout: () => dispatch(onCheckout()),
-	// toCheckout: () => dispatch(toCheckout())
+  onCheckout: () => dispatch(onCheckout()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutContainer);

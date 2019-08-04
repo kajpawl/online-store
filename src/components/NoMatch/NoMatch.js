@@ -12,7 +12,7 @@ const NoMatch = props => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
 export default NoMatch;

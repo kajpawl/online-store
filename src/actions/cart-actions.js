@@ -47,6 +47,7 @@ export function toCheckout(subtotal) {
   }
 }
 
+// clear cart after confirming checkout
 export function onCheckout() {
   return {
     type: ON_CHECKOUT

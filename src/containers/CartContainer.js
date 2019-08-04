@@ -5,19 +5,21 @@ import { removeFromCart, changeQuantity, useCoupon, toCheckout } from '../action
 
 class CartContainer extends Component {
 
+  //  Calculate sum to pay
   reducedSubtotal = () => {
-	  const { cartItems } = this.props;
-		let subtotalValues = [];
+    const { cartItems } = this.props;
+    let subtotalValues = [];
     cartItems.map(cartItem => subtotalValues.push(cartItem.quantity * cartItem.item.price));
     function sum(x, y) {
       return x + y;
     };
     return subtotalValues.length !== 0 ? subtotalValues.reduce(sum) : 0;
-  };
+  }
 
+  //  Amount to pay displayed in cart (after applying coupon codes)
   finalSubtotal = () => {
- 		const { cartItems, discountCoupon } = this.props;
- 		const { reducedSubtotal } = this;
+    const { discountCoupon } = this.props;
+    const { reducedSubtotal } = this;
 
     if (discountCoupon.type === "minus") {
       return (reducedSubtotal() - discountCoupon.value).toFixed(2);
@@ -28,39 +30,39 @@ class CartContainer extends Component {
     else {
       return (reducedSubtotal()).toFixed(2);
     };
-  };
+  }
 
-	render() {
-		const { cartItems, removeFromCart, changeQuantity, useCoupon, toCheckout, coupons, discountCoupon, shippingCost } = this.props;
-		return (
-			<Cart 
-				cartItems={cartItems} 
-				removeFromCart={(id) => removeFromCart(id)} 
-				changeQuantity={(id, quantity) => changeQuantity(id, quantity)} 
-				useCoupon={(couponCode) => useCoupon(couponCode)} 
-				toCheckout={(subtotal) => toCheckout(subtotal)}
-				coupons={coupons}
-				discountCoupon={discountCoupon}
-				shippingCost={shippingCost}
-				finalSubtotal={this.finalSubtotal}
-			/>
-		)
-	}
+  render() {
+    const { cartItems, removeFromCart, changeQuantity, useCoupon, toCheckout, coupons, discountCoupon, shippingCost } = this.props;
+    return (
+      <Cart 
+        cartItems={cartItems} 
+        removeFromCart={(id) => removeFromCart(id)} 
+        changeQuantity={(id, quantity) => changeQuantity(id, quantity)} 
+        useCoupon={(couponCode) => useCoupon(couponCode)} 
+        toCheckout={(subtotal) => toCheckout(subtotal)}
+        coupons={coupons}
+        discountCoupon={discountCoupon}
+        shippingCost={shippingCost}
+        finalSubtotal={this.finalSubtotal}
+      />
+    )
+  }
 };
 
 const mapStateToProps = store => ({
-	cartItems: store.cartReducer.cartItems,
-	coupons: store.cartReducer.coupons,
-	discountCoupon: store.cartReducer.discountCoupon,
-	checkoutData: store.cartReducer.checkoutData,
-	shippingCost: store.cartReducer.shippingCost
+  cartItems: store.cartReducer.cartItems,
+  coupons: store.cartReducer.coupons,
+  discountCoupon: store.cartReducer.discountCoupon,
+  checkoutData: store.cartReducer.checkoutData,
+  shippingCost: store.cartReducer.shippingCost
 });
 
 const mapDispatchToProps = dispatch => ({
-	removeFromCart: id => dispatch(removeFromCart(id)),
-	changeQuantity: (id, quantity) => dispatch(changeQuantity(id, quantity)),
-	useCoupon: couponCode => dispatch(useCoupon(couponCode)),
-	toCheckout: subtotal => dispatch(toCheckout(subtotal))
+  removeFromCart: id => dispatch(removeFromCart(id)),
+  changeQuantity: (id, quantity) => dispatch(changeQuantity(id, quantity)),
+  useCoupon: couponCode => dispatch(useCoupon(couponCode)),
+  toCheckout: subtotal => dispatch(toCheckout(subtotal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

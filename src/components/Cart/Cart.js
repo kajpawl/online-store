@@ -5,12 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Cart.scss';
 
 const Cart = props => {
-  const { cartItems, removeFromCart, changeQuantity, useCoupon, discountCoupon, coupons, shippingCost, finalSubtotal, toCheckout } = props;
+  const { cartItems, removeFromCart, changeQuantity, discountCoupon, finalSubtotal, toCheckout } = props;
 
+  //  Use input to call useCoupon method
   let couponInput = null;
   const onCouponSubmit = event => {
     event.preventDefault();
-    props.useCoupon(couponInput.value)
+    props.useCoupon(couponInput.value);
   };
 
   return (
@@ -52,10 +53,7 @@ const Cart = props => {
                   ref={node => couponInput = node} 
                   style={discountCoupon.code ? {border: "2px solid #27ae60", borderRight: "none"} : {}}
                 />
-                <button 
-                  type="submit" 
-                  className="couponCodeSubmit backgroundBtn" 
-                >
+                <button type="submit" className="couponCodeSubmit backgroundBtn">
                   <FontAwesomeIcon icon="arrow-right" />
                 </button>
               </form>

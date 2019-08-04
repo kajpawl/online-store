@@ -5,18 +5,19 @@ import './Header.scss';
 
 class Header extends Component  {
 
+  //  For mobile devices: prepare opening and closing of menu
   componentDidMount() {
     const menuToggleButton = document.getElementById('menuButton');
-    const navMenu = document.getElementById('nav');
+    const navMenu = document.getElementById('nav').classList;
     const navItems = document.querySelectorAll('#nav nav a');
 
     menuToggleButton.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      navMenu.toggle('active');
       menuToggleButton.classList.toggle('active');
     });
 
     navItems.forEach(item => item.addEventListener('click', () => {
-      navMenu.classList.remove('active');
+      navMenu.remove('active');
       menuToggleButton.classList.remove('active');
     }));
   }
@@ -86,7 +87,6 @@ class Header extends Component  {
       </header>
     );
   };
-
 };
 
 export default Header;

@@ -9,7 +9,7 @@ import './ProductListContainer.scss';
 
 class ProductListContainer extends Component {
 
-//  constructor is used ONLY to tell React Transition Group when to update
+  //  constructor is used ONLY to tell React Transition Group when to update
   constructor() {
     super();
     this.state = {
@@ -17,18 +17,19 @@ class ProductListContainer extends Component {
     };
   }
   
+  // For mobile devices: dislplay button for toggling visibility of sortinng panel
   componentDidMount() {
     const { getProducts, searchProducts } = this.props;
     getProducts();
     searchProducts('');
 
     const filterButton = document.getElementById('filterButton');
-    const sortingPanel = document.getElementById('sortingPanel');
+    const sortingPanel = document.getElementById('sortingPanel').classList;
     filterButton.classList.add('visible');
     filterButton.addEventListener('click', () => {
       filterButton.classList.toggle('active');
-      sortingPanel.classList.toggle('active');
-      if (sortingPanel.classList.contains('active')) this.pageScrollUp();
+      sortingPanel.toggle('active');
+      if (sortingPanel.contains('active')) this.pageScrollUp();
     });
   }
 
@@ -38,6 +39,7 @@ class ProductListContainer extends Component {
     if (filterButtonClass.contains('active')) filterButtonClass.remove('active');
   }
 
+  //  Display products of chosen category (if none is chosen, display all products)
   getProductsForPage() {
     const { shownProducts, productsPerPage, currentPage, shownCategory } = this.props;
     const lastShownProductIndex = currentPage * productsPerPage;
@@ -50,6 +52,7 @@ class ProductListContainer extends Component {
       shownProducts.slice(firstShownProductIndex, lastShownProductIndex);
   }
 
+  //  Scroll to the top on viewing next page of products
   pageScrollUp() {
     window.scrollTo({
       top: 0,
@@ -60,6 +63,7 @@ class ProductListContainer extends Component {
     });
   }
 
+  //  Render buttons for pagination according to the number of displayed products
   renderPaginationButtons() {
     const { shownProducts, shownCategory, productsPerPage, currentPage, changeProductPage } = this.props;
     let paginationButtons = [];
@@ -70,7 +74,7 @@ class ProductListContainer extends Component {
   }
 
   render() {
-    const { shownCategory, searchProducts, sortProducts, getCategory, shownProducts, getProduct, addToCart, productsPerPage, currentPage, changeProductPage, cartItems } = this.props;
+    const { shownCategory, searchProducts, sortProducts, getCategory, getProduct, addToCart, currentPage, changeProductPage, cartItems } = this.props;
     return (
       <div className="productListContainer">
         <div className="mainContent container">
@@ -98,7 +102,7 @@ class ProductListContainer extends Component {
         </div>
       </div>
     );
-  }
+  };
 };
 
 const mapStateToProps = store => ({
