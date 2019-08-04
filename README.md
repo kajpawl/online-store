@@ -1,8 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+
+The project is a React-based Progressive Web App for an online board games store.
+
+It was deployed on the Firebase platform and is available at [https://boardcraze.firebaseapp.com/](https://boardcraze.firebaseapp.com/).
+
+## Functionalities
+
+The application provides a simple solution for browsing and buying offered products. A purchase is made through adding products to the cart and then confirming the order after all desired products are chosen. Products may be searched through, sorted according to their category or filtered by their price or name.
+
+The app keeps track on the number and value of products, thus dynamically providing the total cost of the order.
+
+It also supports the usage of the discount coupons. Currently three types of discounts are supported:
+- Percentage (sample code: `PERCENT`)
+- Value (sample code: `SUMMER-19`)
+- Free shipping (sample code: `SHIPPING`)
+
+## Technologies
+
+This project was bootstrapped with [Create React App](https://boardcraze.firebaseapp.com/) and utilizes the following solutions:
+- React.js - for user interface design and rendering
+- Redux - for global state management
+- React Transition Group - for page transitions and component animations
+- ReactStrap (React implementation of Bootstrap) - for some components
+
+Development wise, it also uses:
+- GIT - for version control
+- NPM - for package managing
+- SCSS - for style sheets' syntax
+- ES6 Javascript syntax
+
+The application also utilizes Bootstrap 4 grid and Font Awesome icons library.
 
 ## Available Scripts
 
-In the project directory, you can run:
+After installing the project with `npm install` in the project directory, you can run:
 
 ### `npm start`
 
@@ -11,11 +42,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
