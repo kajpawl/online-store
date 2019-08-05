@@ -40,15 +40,9 @@ class Product extends Component {
                 <h2>{product.name}</h2>
                 <div className="row">
                   <div className="col-6">
-                    <label className="priceLabel">Price:
-                      <span>$ {product.price}</span>
-                    </label>
-                    {product.promoted === true ? <label className="oldPriceLabel">Old price: 
-                      <span>$ {product.oldPrice}</span>
-                    </label> : ""}
-                    <label className="categoryLabel">Category: 
-                      <span>{product.category}</span>
-                    </label>
+                    <label className="priceLabel">Price: <span>$ {product.price}</span></label>
+                    {product.promoted === true ? <label className="oldPriceLabel">Old price: <span>$ {product.oldPrice}</span></label> : ""}
+                    <label className="categoryLabel">Category: <span>{product.category}</span></label>
                   </div>
                   <div className="col-6">
                     <button className="backgroundBtn" onClick={() => addToCart(product.id)}>
@@ -64,9 +58,7 @@ class Product extends Component {
                         </span>
                       }
                     </button>
-                    <label className="stockLabel">In stock: 
-                      <span>{product.stock}</span>
-                    </label>
+                    <label className="stockLabel">In stock: <span>{product.stock}</span></label>
                   </div>
                 </div>
               </div>
