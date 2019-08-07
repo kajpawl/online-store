@@ -20,6 +20,7 @@ It also supports the usage of the discount coupons. Currently three types of dis
 This project was bootstrapped with [Create React App](https://boardcraze.firebaseapp.com/) and utilizes the following solutions:
 - React.js - for user interface design and rendering
 - Redux - for global state management
+- React Router - for intuitive routing within the app
 - React Transition Group - for page transitions and component animations
 - ReactStrap (React implementation of Bootstrap) - for some components
 
